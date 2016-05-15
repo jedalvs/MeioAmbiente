@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html>
+<html class="no-js" lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+
+	<div class="container-fluid">
+		<h:form>
+
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+
+				<a href="#menu-toggle" class="navbar-brand-icon" id="menu-toggle">
+					<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+				</a> <span class="navbar-brand navbar-brand-custom">Gestão Ambiental</span>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+
+				<ul class="nav navbar-nav navbar-right">
+
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-expanded="false">Cadastro
+							<span class="caret"></span>
+					</a>
+						<ul class="dropdown-menu" role="menu">
+							<li><p:commandLink ajax="false" styleClass="navbar-link"
+									value="Forma Proteção" action="#{formaProtecaoController.navLista}" /></li>
+							
+						</ul></li>
+
+					
+
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-expanded="false"><h:outputText
+								value="Minha conta" /><span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">Editar Perfil</a></li>
+							<li><a href="#">Configurações</a></li>
+							<li><p:commandLink ajax="false" styleClass="navbar-link"
+									value="Sair" action="#{sessaoCTL.fazerLogout}" /></li>
+						</ul></li>
+
+				</ul>
+
+			</div>
+			<!-- /.navbar-collapse -->
+		</h:form>
+	</div>
+	<!-- /.container-fluid -->
+
+</nav>
+
+</html>
+

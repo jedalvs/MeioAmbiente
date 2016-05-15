@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html >
+<html class="no-js" lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view encoding="ISO-8859-1" contentType="text/html">
+	<h:head>
+		<ui:include src="/layout/style.xhtml" />
+	</h:head>
+	<h:body>
+		<div id="wrapper">
+
+			<ui:insert name="top-bar" />
+
+			<div class="custom-dashboard">
+
+				<ui:insert name="menu-bar" />
+
+				<ui:include src="/layout/content.xhtml" />
+
+			</div>
+
+		</div>
+
+		<ui:include src="/layout/javascript.xhtml" />
+
+	</h:body>
+</f:view>
+</html>
+

@@ -1,14 +1,17 @@
 package br.com.gestaoambiental.bean;
+
 // Generated 23/04/2016 16:32:09 by Hibernate Tools 4.3.1.Final
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -24,6 +27,10 @@ import javax.persistence.TemporalType;
 @Table(name = "documento", catalog = "gestao_ambiental")
 public class Documento implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer docuId;
 	private Acesso acesso;
 	private FormaProtecao formaProtecao;
@@ -39,9 +46,12 @@ public class Documento implements java.io.Serializable {
 	public Documento() {
 	}
 
-	public Documento(Acesso acesso, FormaProtecao formaProtecao, LocalOrigem localOrigemByDocuIdLocalOrigem,
-			LocalOrigem localOrigemByDocuLocalGuarda, ModuloRecuperacao moduloRecuperacao,
-			TempoGuarda tempoGuardaByDocuIdTempoGuarda, TempoGuarda tempoGuardaByDocuIdTempoGuardaArquivoMorto,
+	public Documento(Acesso acesso, FormaProtecao formaProtecao,
+			LocalOrigem localOrigemByDocuIdLocalOrigem,
+			LocalOrigem localOrigemByDocuLocalGuarda,
+			ModuloRecuperacao moduloRecuperacao,
+			TempoGuarda tempoGuardaByDocuIdTempoGuarda,
+			TempoGuarda tempoGuardaByDocuIdTempoGuardaArquivoMorto,
 			Date docuDataManutencao, String docuIdentificacao, Set<Anexo> anexos) {
 		this.acesso = acesso;
 		this.formaProtecao = formaProtecao;
@@ -57,7 +67,6 @@ public class Documento implements java.io.Serializable {
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "docu_id", unique = true, nullable = false)
 	public Integer getDocuId() {
 		return this.docuId;
@@ -93,7 +102,8 @@ public class Documento implements java.io.Serializable {
 		return this.localOrigemByDocuIdLocalOrigem;
 	}
 
-	public void setLocalOrigemByDocuIdLocalOrigem(LocalOrigem localOrigemByDocuIdLocalOrigem) {
+	public void setLocalOrigemByDocuIdLocalOrigem(
+			LocalOrigem localOrigemByDocuIdLocalOrigem) {
 		this.localOrigemByDocuIdLocalOrigem = localOrigemByDocuIdLocalOrigem;
 	}
 
@@ -103,7 +113,8 @@ public class Documento implements java.io.Serializable {
 		return this.localOrigemByDocuLocalGuarda;
 	}
 
-	public void setLocalOrigemByDocuLocalGuarda(LocalOrigem localOrigemByDocuLocalGuarda) {
+	public void setLocalOrigemByDocuLocalGuarda(
+			LocalOrigem localOrigemByDocuLocalGuarda) {
 		this.localOrigemByDocuLocalGuarda = localOrigemByDocuLocalGuarda;
 	}
 
@@ -123,7 +134,8 @@ public class Documento implements java.io.Serializable {
 		return this.tempoGuardaByDocuIdTempoGuarda;
 	}
 
-	public void setTempoGuardaByDocuIdTempoGuarda(TempoGuarda tempoGuardaByDocuIdTempoGuarda) {
+	public void setTempoGuardaByDocuIdTempoGuarda(
+			TempoGuarda tempoGuardaByDocuIdTempoGuarda) {
 		this.tempoGuardaByDocuIdTempoGuarda = tempoGuardaByDocuIdTempoGuarda;
 	}
 
@@ -133,7 +145,8 @@ public class Documento implements java.io.Serializable {
 		return this.tempoGuardaByDocuIdTempoGuardaArquivoMorto;
 	}
 
-	public void setTempoGuardaByDocuIdTempoGuardaArquivoMorto(TempoGuarda tempoGuardaByDocuIdTempoGuardaArquivoMorto) {
+	public void setTempoGuardaByDocuIdTempoGuardaArquivoMorto(
+			TempoGuarda tempoGuardaByDocuIdTempoGuardaArquivoMorto) {
 		this.tempoGuardaByDocuIdTempoGuardaArquivoMorto = tempoGuardaByDocuIdTempoGuardaArquivoMorto;
 	}
 

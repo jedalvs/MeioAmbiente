@@ -1,13 +1,16 @@
 package br.com.gestaoambiental.bean;
+
 // Generated 23/04/2016 16:32:09 by Hibernate Tools 4.3.1.Final
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -19,6 +22,10 @@ import javax.persistence.Table;
 @Table(name = "forma_protecao", catalog = "gestao_ambiental")
 public class FormaProtecao implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer foprId;
 	private String foprDescricao;
 	private Set<Documento> documentos = new HashSet<Documento>(0);
@@ -33,7 +40,6 @@ public class FormaProtecao implements java.io.Serializable {
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "fopr_id", unique = true, nullable = false)
 	public Integer getFoprId() {
 		return this.foprId;

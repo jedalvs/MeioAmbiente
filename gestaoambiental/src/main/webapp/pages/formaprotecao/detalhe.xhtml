@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html>
+<html class="no-js" lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/layout/layout.xhtml">
+
+	<ui:define name="top-bar">
+		<ui:include src="/layout/top-bar.xhtml" />
+	</ui:define>
+
+	<ui:define name="menu-bar">
+		<ui:include src="/layout/menu-bar.xhtml" />
+	</ui:define>
+
+	<ui:define name="menu-data">
+		<li><p:commandLink ajax="false" styleClass="navbar-link"
+				value="Lista de Forma de Proteção"
+				action="#{formaProtecaoController.navLista}" /></li>
+		<li><p:commandLink ajax="false" styleClass="navbar-link"
+				value="Incluir novo" action="#{formaProtecaoController.navAdd}" /></li>
+
+	</ui:define>
+
+	<ui:define name="principal">
+		<div class="col-lg-12">
+
+			<h1>Forma Proteção</h1>
+			<hr />
+
+			<h:form id="form-fornecedor" acceptcharset="ISO-8859-1">
+				<h:inputHidden value="#{formaProtecaoController.formaProtecao.foprId}" />
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="col-lg-6">
+							<label for="descricao">Descrição</label><br />
+							<h:outputText id="descricao"
+								value="#{formaProtecaoController.formaProtecao.foprDescricao}" />
+							<br />
+						</div>						
+					</div>
+				</div>
+
+
+				<p:commandButton ajax="false" action="#{formaProtecaoController.navEdit}"
+					value="Editar" styleClass="btn btn-primary" />
+
+				<p:commandButton
+					onclick="javascript:return confirm('Deseja realmente excluir essa forma de proteção?')"
+					ajax="false" action="#{formaProtecaoController.remover}" value="Excluir"
+					styleClass="btn btn-danger" />
+
+				<p:commandButton ajax="false" action="#{formaProtecaoController.navLista}"
+					value="Voltar" styleClass="btn btn-default" />
+
+
+			</h:form>
+
+
+		</div>
+	</ui:define>
+
+</ui:composition>
+
+
+</html>
+

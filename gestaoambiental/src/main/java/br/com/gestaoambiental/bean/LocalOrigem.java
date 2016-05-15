@@ -1,13 +1,16 @@
 package br.com.gestaoambiental.bean;
+
 // Generated 23/04/2016 16:32:09 by Hibernate Tools 4.3.1.Final
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -19,15 +22,22 @@ import javax.persistence.Table;
 @Table(name = "local_origem", catalog = "gestao_ambiental")
 public class LocalOrigem implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer loorId;
 	private String loorDescricao;
-	private Set<Documento> documentosForDocuIdLocalOrigem = new HashSet<Documento>(0);
-	private Set<Documento> documentosForDocuLocalGuarda = new HashSet<Documento>(0);
+	private Set<Documento> documentosForDocuIdLocalOrigem = new HashSet<Documento>(
+			0);
+	private Set<Documento> documentosForDocuLocalGuarda = new HashSet<Documento>(
+			0);
 
 	public LocalOrigem() {
 	}
 
-	public LocalOrigem(String loorDescricao, Set<Documento> documentosForDocuIdLocalOrigem,
+	public LocalOrigem(String loorDescricao,
+			Set<Documento> documentosForDocuIdLocalOrigem,
 			Set<Documento> documentosForDocuLocalGuarda) {
 		this.loorDescricao = loorDescricao;
 		this.documentosForDocuIdLocalOrigem = documentosForDocuIdLocalOrigem;
@@ -36,7 +46,6 @@ public class LocalOrigem implements java.io.Serializable {
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "loor_id", unique = true, nullable = false)
 	public Integer getLoorId() {
 		return this.loorId;
@@ -60,7 +69,8 @@ public class LocalOrigem implements java.io.Serializable {
 		return this.documentosForDocuIdLocalOrigem;
 	}
 
-	public void setDocumentosForDocuIdLocalOrigem(Set<Documento> documentosForDocuIdLocalOrigem) {
+	public void setDocumentosForDocuIdLocalOrigem(
+			Set<Documento> documentosForDocuIdLocalOrigem) {
 		this.documentosForDocuIdLocalOrigem = documentosForDocuIdLocalOrigem;
 	}
 
@@ -69,7 +79,8 @@ public class LocalOrigem implements java.io.Serializable {
 		return this.documentosForDocuLocalGuarda;
 	}
 
-	public void setDocumentosForDocuLocalGuarda(Set<Documento> documentosForDocuLocalGuarda) {
+	public void setDocumentosForDocuLocalGuarda(
+			Set<Documento> documentosForDocuLocalGuarda) {
 		this.documentosForDocuLocalGuarda = documentosForDocuLocalGuarda;
 	}
 

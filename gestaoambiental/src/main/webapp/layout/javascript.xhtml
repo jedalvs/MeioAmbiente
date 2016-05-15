@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html>
+<html class="no-js" lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<!-- jQuery -->
+<script src="#{request.contextPath}/src/js/jquery.js" charset="ISO-8859-1"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="#{request.contextPath}/src/js/bootstrap.min.js" charset="ISO-8859-1"></script>
+
+<script src="#{request.contextPath}/src/js/mascara.js" charset="ISO-8859-1"></script>
+
+
+<!-- Menu Toggle Script -->
+<script type="text/javascript">
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+</script>
+
+<script type="text/javascript">
+	var $j = jQuery.noConflict(true);
+</script>
+
+
+
+</html>
+

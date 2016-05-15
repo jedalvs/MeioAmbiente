@@ -1,14 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>gestaoambiental</groupId>
-  <artifactId>gestaoambiental</artifactId>
-  <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>gestaoambiental Maven Webapp</name>
-  <url>http://maven.apache.org</url>
-  <dependencies>
-    <!-- Núcleo do Hibernate -->
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>gestaoambiental</groupId>
+	<artifactId>gestaoambiental</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>gestaoambiental Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
+		<!-- Núcleo do Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
@@ -24,13 +24,13 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<!-- Driver JDBC do MySQL -->
+		<!-- MySql -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.25</version>
-			<scope>compile</scope>
+			<version>5.1.20</version>
 		</dependency>
+
 
 		<!-- Spring 3 -->
 		<dependency>
@@ -63,19 +63,19 @@
 			<artifactId>spring-security-web</artifactId>
 			<version>3.2.0.RELEASE</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
 			<version>3.2.0.RELEASE</version>
 		</dependency>
-		
+
 		<!-- PrimeFaces (biblioteca de componentes) -->
-		<dependency>  
-	        <groupId>org.primefaces</groupId>  
-	        <artifactId>primefaces</artifactId>  
-	        <version>5.3</version>  
-	    </dependency>  
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>5.3</version>
+		</dependency>
 
 		<!-- Mojarra (implementacao do JSF) -->
 		<dependency>
@@ -84,7 +84,7 @@
 			<version>2.1.26</version>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<!-- Prime faces Theme (Tema twitter bootstrap) -->
 		<dependency>
 			<groupId>org.primefaces.themes</groupId>
@@ -92,13 +92,13 @@
 			<version>1.0.10</version>
 		</dependency>
 
-		<dependency> 
-			<groupId>org.primefaces.extensions</groupId> 
-			<artifactId>primefaces-extensions</artifactId> 
-			<version>1.2.1</version> 
-		</dependency> 
+		<dependency>
+			<groupId>org.primefaces.extensions</groupId>
+			<artifactId>primefaces-extensions</artifactId>
+			<version>1.2.1</version>
+		</dependency>
 
-			
+
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -111,7 +111,7 @@
 			<version>2.5</version>
 		</dependency>
 
-		
+
 		<!-- Jasper (Libs para apoio a geração de relatorios) -->
 		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
@@ -124,29 +124,29 @@
 			<artifactId>groovy-all</artifactId>
 			<version>2.1.6</version>
 		</dependency>
-		
+
 		<!-- Hibernate c3p0 connection pool -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-c3p0</artifactId>
 			<version>4.2.3.Final</version>
 		</dependency>
-		
+
 		<dependency>
-		    <groupId>org.ocpsoft.rewrite</groupId>
-		    <artifactId>rewrite-servlet</artifactId>
-		    <version>2.0.11.Final</version>
+			<groupId>org.ocpsoft.rewrite</groupId>
+			<artifactId>rewrite-servlet</artifactId>
+			<version>2.0.11.Final</version>
 		</dependency>
 		<dependency>
-		    <groupId>org.ocpsoft.rewrite</groupId>
-		    <artifactId>rewrite-config-prettyfaces</artifactId>
-		    <version>2.0.11.Final</version>
+			<groupId>org.ocpsoft.rewrite</groupId>
+			<artifactId>rewrite-config-prettyfaces</artifactId>
+			<version>2.0.11.Final</version>
 		</dependency>
-  </dependencies>
-  <build>
-    <finalName>gestaoambiental</finalName>
-  </build>
-  <repositories>
+	</dependencies>
+	<build>
+		<finalName>gestaoambiental</finalName>
+	</build>
+	<repositories>
 		<repository>
 			<id>prime-repo</id>
 			<name>PrimeFaces Maven Repository</name>
