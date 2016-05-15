@@ -1,16 +1,13 @@
 package br.com.gestaoambiental.bean;
-
-// Generated 23/04/2016 16:32:09 by Hibernate Tools 4.3.1.Final
-
-import static javax.persistence.GenerationType.IDENTITY;
+// Generated 15/05/2016 16:28:26 by Hibernate Tools 4.3.1.Final
 
 import java.util.HashSet;
 import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -22,10 +19,6 @@ import javax.persistence.Table;
 @Table(name = "modulo_recuperacao", catalog = "gestao_ambiental")
 public class ModuloRecuperacao implements java.io.Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private Integer moreId;
 	private String moreDescricao;
 	private Set<Documento> documentos = new HashSet<Documento>(0);
@@ -40,6 +33,7 @@ public class ModuloRecuperacao implements java.io.Serializable {
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
+
 	@Column(name = "more_id", unique = true, nullable = false)
 	public Integer getMoreId() {
 		return this.moreId;

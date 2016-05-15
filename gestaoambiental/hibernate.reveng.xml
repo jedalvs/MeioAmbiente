@@ -5,8 +5,11 @@
   <table-filter match-catalog="gestao_ambiental" match-name="acesso"/>
   <table-filter match-catalog="gestao_ambiental" match-name="anexo"/>
   <table-filter match-catalog="gestao_ambiental" match-name="documento"/>
+  <table-filter match-catalog="gestao_ambiental" match-name="empresa"/>
+  <table-filter match-catalog="gestao_ambiental" match-name="filial"/>
   <table-filter match-catalog="gestao_ambiental" match-name="forma_protecao"/>
   <table-filter match-catalog="gestao_ambiental" match-name="local_origem"/>
   <table-filter match-catalog="gestao_ambiental" match-name="modulo_recuperacao"/>
   <table-filter match-catalog="gestao_ambiental" match-name="tempo_guarda"/>
+  <table-filter match-catalog="gestao_ambiental" match-name="usuario"/>
 </hibernate-reverse-engineering>
