@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html>
+<html class="no-js" lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<f:view contentType="text/html; charset=ISO-8859-1">
+
+	<ui:composition template="/layout/layout.xhtml">
+
+		<ui:define name="top-bar">
+			<ui:include src="/layout/top-bar.xhtml" />
+		</ui:define>
+
+		<ui:define name="menu-bar">
+			<ui:include src="/layout/menu-bar.xhtml" />
+		</ui:define>
+
+		<ui:define name="menu-data">
+			<li><p:commandLink ajax="false" styleClass="navbar-link"
+					value="Lista de acessos"
+					action="#{acessoController.navLista}" /></li>
+			<li><p:commandLink ajax="false" styleClass="navbar-link"
+					value="Incluir novo" action="#{acessoController.navAdd}" /></li>
+
+		</ui:define>
+
+
+
+		<ui:define name="principal">
+			<div class="col-lg-12">
+				<h1>Acesso</h1>
+				<hr />
+
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<h:form id="form-filtro">
+							<div class="col-lg-12">
+								<label for="contato">Descrição</label>
+								<p:inputText id="fantasiaFiltro"
+									value="#{acessoController.descricaoFiltro}"
+									styleClass="form-control" />
+								<br />
+							</div>
+							<div class="col-lg-12">
+								<p:commandButton update=":form-lista"
+									actionListener="#{acessoController.carregarLista}"
+									value="Pesquisar" styleClass="btn btn-primary" />
+							</div>
+						</h:form>
+
+					</div>
+				</div>
+
+				<hr />
+
+				<h:form id="form-lista" acceptcharset="ISO-8859-1">
+					<div class="table-responsive">
+						<table class="table table-hover">
+							<tr>
+								<td>Id</td>
+								<td>Descrição</td>
+							</tr>
+
+							<ui:repeat var="acesso"
+								value="#{acessoController.acessoList}"
+								varStatus="status">
+
+								<tr>
+									<td>#{acesso.acesId}</td>
+									<td><p:commandLink ajax="false" styleClass="navbar-link"
+											value="#{acesso.acesDescricao}"
+											action="#{acessoController.navDetalhe}">
+											<f:setPropertyActionListener
+												target="#{acessoController.acesso}"
+												value="#{acesso}" />
+										</p:commandLink></td>
+								</tr>
+
+							</ui:repeat>
+
+						</table>
+					</div>
+				</h:form>
+
+			</div>
+		</ui:define>
+
+	</ui:composition>
+
+</f:view>
+</html>
+

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html>
+<html class="no-js" lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/layout/layout.xhtml">
+
+	<ui:define name="top-bar">
+		<ui:include src="/layout/top-bar.xhtml" />
+	</ui:define>
+
+	<ui:define name="menu-bar">
+		<ui:include src="/layout/menu-bar.xhtml" />
+	</ui:define>
+
+	<ui:define name="menu-data">
+		<li><p:commandLink ajax="false" styleClass="navbar-link"
+				value="Lista de Local de Origem"
+				action="#{localOrigemController.navLista}" /></li>
+		<li><p:commandLink ajax="false" styleClass="navbar-link"
+				value="Incluir novo" action="#{localOrigemController.navAdd}" /></li>
+
+	</ui:define>
+
+	<ui:define name="principal">
+		<div class="col-lg-12">
+
+			<h1>Local de origem</h1>
+			<hr />
+
+			<h:form id="form-fornecedor" acceptcharset="ISO-8859-1">
+				<h:inputHidden value="#{localOrigemController.localOrigem.loorId}" />
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="col-lg-6">
+							<label for="descricao">Descrição</label><br />
+							<h:outputText id="descricao"
+								value="#{localOrigemController.localOrigem.loorDescricao}" />
+							<br />
+						</div>						
+					</div>
+				</div>
+
+
+				<p:commandButton ajax="false" action="#{localOrigemController.navEdit}"
+					value="Editar" styleClass="btn btn-primary" />
+
+				<p:commandButton
+					onclick="javascript:return confirm('Deseja realmente excluir esse local de origem?')"
+					ajax="false" action="#{localOrigemController.remover}" value="Excluir"
+					styleClass="btn btn-danger" />
+
+				<p:commandButton ajax="false" action="#{localOrigemController.navLista}"
+					value="Voltar" styleClass="btn btn-default" />
+
+
+			</h:form>
+
+
+		</div>
+	</ui:define>
+
+</ui:composition>
+
+
+</html>
+
