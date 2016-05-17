@@ -6,14 +6,14 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
-<ui:composition template="/layout/layout.xhtml">
+<ui:composition template="/pages/layout/layout.xhtml">
 
 	<ui:define name="top-bar">
-		<ui:include src="/layout/top-bar.xhtml" />
+		<ui:include src="/pages/layout/top-bar.xhtml" />
 	</ui:define>
 
 	<ui:define name="menu-bar">
-		<ui:include src="/layout/menu-bar.xhtml" />
+		<ui:include src="/pages/layout/menu-bar.xhtml" />
 	</ui:define>
 
 	<ui:define name="menu-data">
@@ -31,29 +31,7 @@
 				<button type="button" class="btn btn-primary" data-toggle="modal"
 					data-target="#myModal">+</button>
 
-				<!-- Modal -->
-			<div id="myModal" class="modal fade" role="dialog">
-				<div class="modal-dialog">
-
-					<!-- Modal content-->
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal">x</button>
-							<h4 class="modal-title">Pop Up</h4>
-						</div>
-						<div class="modal-body">
-							<p>Some text in the modal.</p>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default"
-								data-dismiss="modal">Fechar</button>
-						</div>
-					</div>
-
-				</div>
-			</div>
-
-
+			
 		</div>
 	</ui:define>
 
