@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html>
+<html class="no-js" lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/pages/layout/layout.xhtml">
+
+	<ui:define name="top-bar">
+		<ui:include src="/pages/layout/top-bar.xhtml" />
+	</ui:define>
+
+	<ui:define name="menu-bar">
+		<ui:include src="/pages/layout/menu-bar.xhtml" />
+	</ui:define>
+
+	<ui:define name="menu-data">
+		<li><p:commandLink ajax="false" styleClass="navbar-link"
+				value="Lista de filial"
+				action="#{filialController.navLista}" /></li>
+		<li><p:commandLink ajax="false" styleClass="navbar-link"
+				value="Incluir novo" action="#{filialController.navAdd}" /></li>
+
+	</ui:define>
+
+	<ui:define name="principal">
+		<div class="col-lg-12">
+
+			<h1>Acesso</h1>
+			<hr />
+
+			<h:form id="form-equipamento" acceptcharset="ISO-8859-1">
+				<h:inputHidden value="#{filialController.filial.filiId}" />
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="col-lg-6">
+							<label for="descricao">Descrição</label>
+							<p:inputText id="descricao"
+								value="#{filialController.filial.filiNome}"
+								styleClass="form-control" />
+							<br />
+						</div>
+						
+					</div>
+				</div>
+
+				<p:commandButton ajax="false" action="#{filialController.salvar}"
+					value="Salvar" styleClass="btn btn-success" />
+				<p:commandButton ajax="false" action="#{filialController.navLista}"
+					value="Voltar" styleClass="btn btn-primary" />
+			</h:form>
+
+
+		</div>
+	</ui:define>
+
+</ui:composition>
+
+
+</html>
+

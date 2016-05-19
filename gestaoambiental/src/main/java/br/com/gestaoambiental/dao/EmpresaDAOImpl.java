@@ -8,9 +8,9 @@ import org.hibernate.criterion.Restrictions;
 import br.com.gestaoambiental.bean.Empresa;
 import br.com.gestaoambiental.connection.HibernateUtil;
 
-public class EmpresalDAOImpl extends DaoImpl<Empresa, Integer> {
+public class EmpresaDAOImpl extends DaoImpl<Empresa, Integer> {
 
-	public EmpresalDAOImpl() {
+	public EmpresaDAOImpl() {
 		super(Empresa.class);
 	}
 
