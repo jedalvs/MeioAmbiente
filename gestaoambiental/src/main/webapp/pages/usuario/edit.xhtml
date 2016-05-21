@@ -28,21 +28,51 @@
 	<ui:define name="principal">
 		<div class="col-lg-12">
 
-			<h1>Acesso</h1>
+			<h1>Cadastro de usuário</h1>
 			<hr />
 
-			<h:form id="form-equipamento" acceptcharset="ISO-8859-1">
+			<h:form id="form-usuario" acceptcharset="ISO-8859-1">
 				<h:inputHidden value="#{usuarioController.usuario.usuaId}" />
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<div class="col-lg-6">
-							<label for="descricao">Descrição</label>
-							<p:inputText id="descricao"
-								value="#{usuarioController.usuario.usuaNome}"
-								styleClass="form-control" />
-							<br />
+						<div class="row">
+							<div class="col-lg-6">
+								<label for="empresa">Empresa</label>
+								<h:selectOneMenu filter="true" filterMatchMode="contains"
+									value="#{usuarioController.idEmpresaSelecionado}"
+									styleClass="form-control">
+									<f:selectItem itemValue="0" itemLabel="Selecione" />
+									<f:selectItems value="#{usuarioController.cbEmpresa}" />							
+								</h:selectOneMenu>
+							</div>	
+							
+							<div class="col-lg-6">
+								<label for="nivel">Nível acesso</label>
+								<h:selectOneMenu filter="true" filterMatchMode="contains"
+									value="#{usuarioController.idNivelSelecionado}"
+									styleClass="form-control">
+									<f:selectItem itemValue="0" itemLabel="Selecione" />
+									<f:selectItem itemValue="ROLE_ADMIN" itemLabel="Administrador" />																					
+								</h:selectOneMenu>
+							</div>
 						</div>
-						
+						<div class="row">
+							<div class="col-lg-4">
+								<label for="usuaNome">Nome</label><br />
+								<p:inputText id="usuaNome"
+									value="#{usuarioController.usuario.usuaNome}" />								
+							</div>
+							<div class="col-lg-4">
+								<label for="usuaUsuario">Nome de usuário</label><br />
+								<p:inputText id="usuaUsuario"
+									value="#{usuarioController.usuario.usuaUsuario}" />								
+							</div>	
+							<div class="col-lg-4">
+								<label for="usuaSenha">Senha</label><br />
+								<p:password id="usuaSenha"
+									value="#{usuarioController.usuario.usuaSenha}" />								
+							</div>		
+						</div>
 					</div>
 				</div>
 

@@ -28,7 +28,7 @@
 	<ui:define name="principal">
 		<div class="col-lg-12">
 
-			<h1>Acesso</h1>
+			<h1>Cadastro de empresa</h1>
 			<hr />
 
 			<h:form id="form-fornecedor" acceptcharset="ISO-8859-1">
@@ -36,11 +36,27 @@
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<div class="col-lg-6">
-							<label for="descricao">Descrição</label><br />
-							<h:outputText id="descricao"
-								value="#{empresaController.empresa.emprNome}" />
+							<label for="descricao">Nome</label>
+							<p:inputText id="nome"
+								value="#{empresaController.empresa.emprNome}"
+								styleClass="form-control" />
 							<br />
-						</div>						
+						</div>
+						<div class="col-lg-6">
+							<label for="descricao">Garagem</label>
+							<p:inputText id="garagem"
+								value="#{empresaController.empresa.emprGaragem}"
+								styleClass="form-control" />
+							<br />
+						</div>
+						<div class="col-lg-6">
+							<label for="descricao">Setor</label>
+							<p:inputText id="setor"
+								value="#{empresaController.empresa.emprSetor}"
+								styleClass="form-control" />
+							<br />
+						</div>
+						
 					</div>
 				</div>
 

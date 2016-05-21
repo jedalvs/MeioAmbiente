@@ -7,7 +7,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.model.SelectItem;
 
-import br.com.gestaoambiental.bean.Acesso;
 import br.com.gestaoambiental.bean.Empresa;
 import br.com.gestaoambiental.bean.Filial;
 import br.com.gestaoambiental.dao.EmpresaDAOImpl;
@@ -21,15 +20,11 @@ public class FilialControllerImpl implements Controller {
 	private Filial filial;
 	private List<SelectItem> cbEmpresa;
 	private Integer idEmpresaSelecionado;
-	
-
 	private List<Filial> filialList;
-
 	private EmpresaDAOImpl empresaDao;
 	private FilialDAOImpl filialDao;
-
 	private String descricaoFiltro;
-
+	
 	private static final String PAGINA_LISTA = "listaFilial";
 	private static final String PAGINA_EDICAO = "editFilial";
 	private static final String PAGINA_DETALHE = "detalheFilial";
@@ -172,21 +167,15 @@ public class FilialControllerImpl implements Controller {
 	
 	public void initCbEmpresa() {
 		try {
-
 			this.cbEmpresa = new ArrayList<SelectItem>();
-
 			List<Empresa> empresas = empresaDao.findAll();
-
+			
 			for (Empresa empresa : empresas) {
-
 				SelectItem s = new SelectItem();
-
 				s.setLabel(empresa.getEmprNome());
 				s.setValue(empresa.getEmprId());
 				this.cbEmpresa.add(s);
-
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
