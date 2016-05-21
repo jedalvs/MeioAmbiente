@@ -5,7 +5,6 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
-import br.com.gestaoambiental.bean.TempoGuarda;
 import br.com.gestaoambiental.bean.Usuario;
 import br.com.gestaoambiental.connection.HibernateUtil;
 

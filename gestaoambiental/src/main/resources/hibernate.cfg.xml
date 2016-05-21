@@ -24,10 +24,10 @@
         
         <mapping class="br.com.gestaoambiental.bean.Acesso"></mapping>
         <mapping class="br.com.gestaoambiental.bean.Anexo"></mapping>
-        <mapping class="br.com.gestaoambiental.bean.Documento"></mapping>
-        <mapping class="br.com.gestaoambiental.bean.FormaProtecao"></mapping>
-        <mapping class="br.com.gestaoambiental.bean.LocalOrigem"></mapping>
-        <mapping class="br.com.gestaoambiental.bean.ModuloRecuperacao"></mapping>
-        <mapping class="br.com.gestaoambiental.bean.TempoGuarda"></mapping>
+        <mapping class="br.com.gestaoambiental.bean.Documento"></mapping>   
+        <mapping class="br.com.gestaoambiental.bean.Empresa"></mapping>  
+        <mapping class="br.com.gestaoambiental.bean.Filial"></mapping>                
+        <mapping class="br.com.gestaoambiental.bean.LocalOrigem"></mapping>    
+        <mapping class="br.com.gestaoambiental.bean.Usuario"></mapping>          
     </session-factory>
 </hibernate-configuration>

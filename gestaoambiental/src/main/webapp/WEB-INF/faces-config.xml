@@ -3,60 +3,6 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
 
-	<navigation-rule>
-		<from-view-id>/*</from-view-id>
-		<navigation-case>
-			<from-outcome>listaFormaProtecao</from-outcome>
-			<to-view-id>/pages/formaprotecao/lista.xhtml</to-view-id>
-			<redirect />
-		</navigation-case>
-	</navigation-rule>
-
-	<navigation-rule>
-		<from-view-id>/*</from-view-id>
-		<navigation-case>
-			<from-outcome>editFormaProtecao</from-outcome>
-			<to-view-id>/pages/formaprotecao/edit.xhtml</to-view-id>
-			<redirect />
-		</navigation-case>
-	</navigation-rule>
-
-	<navigation-rule>
-		<from-view-id>/*</from-view-id>
-		<navigation-case>
-			<from-outcome>detalheFormaProtecao</from-outcome>
-			<to-view-id>/pages/formaprotecao/detalhe.xhtml</to-view-id>
-			<redirect />
-		</navigation-case>
-	</navigation-rule>
-	
-	
-	<navigation-rule>
-		<from-view-id>/*</from-view-id>
-		<navigation-case>
-			<from-outcome>listaModuloRecuperacao</from-outcome>
-			<to-view-id>/pages/modulorecuperacao/lista.xhtml</to-view-id>
-			<redirect />
-		</navigation-case>
-	</navigation-rule>
-
-	<navigation-rule>
-		<from-view-id>/*</from-view-id>
-		<navigation-case>
-			<from-outcome>editModuloRecuperacao</from-outcome>
-			<to-view-id>/pages/modulorecuperacao/edit.xhtml</to-view-id>
-			<redirect />
-		</navigation-case>
-	</navigation-rule>
-
-	<navigation-rule>
-		<from-view-id>/*</from-view-id>
-		<navigation-case>
-			<from-outcome>detalheModuloRecuperacao</from-outcome>
-			<to-view-id>/pages/modulorecuperacao/detalhe.xhtml</to-view-id>
-			<redirect />
-		</navigation-case>
-	</navigation-rule>
 	
 	<navigation-rule>
 		<from-view-id>/*</from-view-id>
@@ -86,34 +32,7 @@
 	</navigation-rule>
 	
 	
-	<navigation-rule>
-		<from-view-id>/*</from-view-id>
-		<navigation-case>
-			<from-outcome>listaTempoGuarda</from-outcome>
-			<to-view-id>/pages/tempoguarda/lista.xhtml</to-view-id>
-			<redirect />
-		</navigation-case>
-	</navigation-rule>
 
-	<navigation-rule>
-		<from-view-id>/*</from-view-id>
-		<navigation-case>
-			<from-outcome>editTempoGuarda</from-outcome>
-			<to-view-id>/pages/tempoguarda/edit.xhtml</to-view-id>
-			<redirect />
-		</navigation-case>
-	</navigation-rule>
-
-	<navigation-rule>
-		<from-view-id>/*</from-view-id>
-		<navigation-case>
-			<from-outcome>detalheTempoGuarda</from-outcome>
-			<to-view-id>/pages/tempoguarda/detalhe.xhtml</to-view-id>
-			<redirect />
-		</navigation-case>
-	</navigation-rule>
-	
-	//
 	<navigation-rule>
 		<from-view-id>/*</from-view-id>
 		<navigation-case>
@@ -137,6 +56,15 @@
 		<navigation-case>
 			<from-outcome>detalheAcesso</from-outcome>
 			<to-view-id>/pages/acesso/detalhe.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/*</from-view-id>
+		<navigation-case>
+			<from-outcome>listaDocumento</from-outcome>
+			<to-view-id>/pages/documento/lista.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>

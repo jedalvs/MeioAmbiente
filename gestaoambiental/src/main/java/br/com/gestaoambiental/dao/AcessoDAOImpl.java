@@ -6,7 +6,6 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
 import br.com.gestaoambiental.bean.Acesso;
-import br.com.gestaoambiental.bean.FormaProtecao;
 import br.com.gestaoambiental.connection.HibernateUtil;
 
 public class AcessoDAOImpl extends DaoImpl<Acesso, Integer> {

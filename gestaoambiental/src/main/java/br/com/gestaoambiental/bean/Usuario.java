@@ -1,14 +1,19 @@
 package br.com.gestaoambiental.bean;
-// Generated 15/05/2016 16:28:26 by Hibernate Tools 4.3.1.Final
+// Generated 21/05/2016 14:21:33 by Hibernate Tools 4.3.1.Final
+
+import static javax.persistence.GenerationType.IDENTITY;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -23,15 +28,20 @@ public class Usuario implements java.io.Serializable {
 	private String usuaNome;
 	private String usuaUsuario;
 	private String usuaSenha;
+	private String usuaNivel;
+	private Set<Documento> documentos = new HashSet<Documento>(0);
 
 	public Usuario() {
 	}
 
-	public Usuario(Empresa empresa, String usuaNome, String usuaUsuario, String usuaSenha) {
+	public Usuario(Empresa empresa, String usuaNome, String usuaUsuario, String usuaSenha, String usuaNivel,
+			Set<Documento> documentos) {
 		this.empresa = empresa;
 		this.usuaNome = usuaNome;
 		this.usuaUsuario = usuaUsuario;
 		this.usuaSenha = usuaSenha;
+		this.usuaNivel = usuaNivel;
+		this.documentos = documentos;
 	}
 
 	@Id
@@ -81,6 +91,24 @@ public class Usuario implements java.io.Serializable {
 
 	public void setUsuaSenha(String usuaSenha) {
 		this.usuaSenha = usuaSenha;
+	}
+
+	@Column(name = "usua_nivel", length = 20)
+	public String getUsuaNivel() {
+		return this.usuaNivel;
+	}
+
+	public void setUsuaNivel(String usuaNivel) {
+		this.usuaNivel = usuaNivel;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
+	public Set<Documento> getDocumentos() {
+		return this.documentos;
+	}
+
+	public void setDocumentos(Set<Documento> documentos) {
+		this.documentos = documentos;
 	}
 
 }

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html>
+<html class="no-js" lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/pages/layout/layout.xhtml">
+
+	<ui:define name="top-bar">
+		<ui:include src="/pages/layout/top-bar.xhtml" />
+	</ui:define>
+
+	<ui:define name="menu-bar">
+		<ui:include src="/pages/layout/menu-bar.xhtml" />
+	</ui:define>
+
+	<ui:define name="menu-data">
+
+		<li><p:commandLink ajax="false" styleClass="navbar-link"
+				value="Lista de Documento" onclick="PF('statusDialog').show();"
+				action="#{documentoController.navLista}" /></li>
+	</ui:define>
+
+
+	<ui:define name="principal">
+		<div class="col-lg-12">
+
+			<h1>Documento</h1>
+			<hr />
+
+			<div class="panel panel-default">
+				<div class="panel-body">
+
+					<h:form id="form-documento" acceptcharset="ISO-8859-1"
+						enctype="multipart/form-data">
+						<h:inputHidden value="#{documentoController.documento.docuId}" />
+						<div class="col-lg-4">
+							<label for="tipoContato">Data Manutenção</label>
+							<p:calendar id="data-manutencao" showOn="button"
+								value="#{documentoController.documento.docuDataManutencao}"
+								showButtonPanel="true" navigator="true" readonlyInput="true"
+								pattern="dd/MM/yyyy" locale="pt" />
+
+						</div>
+
+						<div class="col-lg-4">
+							<label for="tipoContato">Identificação do Documento</label>
+							<h:inputText styleClass="form-control"
+								value="#{documentoController.documento.docuIdentificacao}" />
+
+						</div>
+
+						<div class="col-lg-4">
+							<label for="tipoContato">Forma de Proteção</label>
+							<h:selectOneMenu filter="true" filterMatchMode="contains"
+								value="#{documentoController.idFormaProtecaoSelecionado}"
+								styleClass="form-control">
+								<f:selectItem itemValue="0" itemLabel="Selecione" />
+								<f:selectItem itemValue="1" itemLabel="Cronologica" />
+								<f:selectItem itemValue="2" itemLabel="Por pasta" />
+								<f:selectItem itemValue="3" itemLabel="Por livro" />
+								<f:selectItem itemValue="4" itemLabel="Por contrato" />
+								<f:selectItem itemValue="5" itemLabel="Fornecedor" />								
+							</h:selectOneMenu>
+
+						</div>
+
+
+						<div class="col-lg-12">
+							<br />
+						</div>
+
+						<div class="col-lg-4">
+							<label for="tipoContato">Local origem</label>
+							<h:selectOneMenu filter="true" filterMatchMode="contains"
+								value="#{documentoController.idLocalOrigemSelecionado}"
+								styleClass="form-control">
+								<f:selectItem itemValue="0" itemLabel="Selecione" />
+								<f:selectItems value="#{documentoController.cbLocalOrigem}" />
+							</h:selectOneMenu>
+
+						</div>
+						<div class="col-lg-4">
+							<label for="tipoContato">Local de Guarda</label>
+							<h:selectOneMenu filter="true" filterMatchMode="contains"
+								value="#{documentoController.idLocalGuardaSelecionado}"
+								styleClass="form-control">
+								<f:selectItem itemValue="0" itemLabel="Selecione" />
+								<f:selectItems value="#{documentoController.cbLocalGuarda}" />
+							</h:selectOneMenu>
+
+						</div>
+						<div class="col-lg-4">
+							<label for="tipoContato">Acesso</label>
+							<h:selectOneMenu filter="true" filterMatchMode="contains"
+								value="#{documentoController.idAcessoSelecionado}"
+								styleClass="form-control">
+								<f:selectItem itemValue="0" itemLabel="Selecione" />
+								<f:selectItems value="#{documentoController.cbAcesso}" />
+							</h:selectOneMenu>
+
+						</div>
+
+						<div class="col-lg-12">
+							<br />
+						</div>
+
+						<div class="col-lg-4">
+							<label for="tipoContato">Método Recuperação</label>
+							<h:selectOneMenu filter="true" filterMatchMode="contains"
+								value="#{documentoController.idModuloRecuperacaoSelecionado}"
+								styleClass="form-control">
+								<f:selectItem itemValue="0" itemLabel="Selecione" />
+								<f:selectItem itemValue="1" itemLabel="AALP" />
+								<f:selectItem itemValue="2" itemLabel="PAQ" />
+								<f:selectItem itemValue="3" itemLabel="AECB" />							
+							</h:selectOneMenu>
+
+						</div>
+
+						<div class="col-lg-4">
+							<label for="tipoContato">Tempo de Guarda Setor</label>
+							<h:selectOneMenu filter="true" filterMatchMode="contains"
+								value="#{documentoController.idTempoGuardaSelecionado}"
+								styleClass="form-control">
+								<f:selectItem itemValue="0" itemLabel="Selecione" />
+								<f:selectItem itemValue="1" itemLabel="1 ano" />
+								<f:selectItem itemValue="2" itemLabel="2 anos" />
+								<f:selectItem itemValue="3" itemLabel="3 anos" />
+								<f:selectItem itemValue="4" itemLabel="4 anos" />
+								<f:selectItem itemValue="5" itemLabel="5 anos" />
+								<f:selectItem itemValue="6" itemLabel="Indeterminado" />
+								<f:selectItem itemValue="7" itemLabel="Permanente" />
+							</h:selectOneMenu>
+
+						</div>
+
+						<div class="col-lg-4">
+							<label for="tipoContato">Tempo de Guarda (Arquivo Morto)</label>
+							<h:selectOneMenu filter="true" filterMatchMode="contains"
+								value="#{documentoController.idTempoGuardaArquivoMortoSelecionado}"
+								styleClass="form-control">
+								<f:selectItem itemValue="0" itemLabel="Selecione" />
+								<f:selectItem itemValue="1" itemLabel="1 ano" />
+								<f:selectItem itemValue="2" itemLabel="2 anos" />
+								<f:selectItem itemValue="3" itemLabel="3 anos" />
+								<f:selectItem itemValue="4" itemLabel="4 anos" />
+								<f:selectItem itemValue="5" itemLabel="5 anos" />
+								<f:selectItem itemValue="6" itemLabel="Indeterminado" />
+								<f:selectItem itemValue="7" itemLabel="Permanente" />
+							</h:selectOneMenu>
+
+						</div>
+
+						<div class="col-lg-12">
+							<br />
+						</div>
+
+						<div class="col-lg-6">
+							<label for="tipoContato">Anexo</label><br />
+							<p:fileUpload multiple="true" sizeLimit="5242880"
+								allowTypes="/(\.|\/)(doc|docx|pdf)$/"
+								fileUploadListener="#{documentoController.upload}"
+								mode="advanced" update="mensagens, :form-documento:pnl-anexo" />
+
+						</div>
+						<div class="col-lg-6">
+							<p:outputPanel id="pnl-anexo">
+								<ui:repeat var="anexo"
+									value="#{documentoController.arquivosAnexos}"
+									varStatus="status">
+
+									<p:commandLink
+										actionListener="#{documentoController.baixarArquivo(anexo.anexCaminho, anexo.nomeArquivo)}"
+										value="#{anexo.nomeArquivo}" ajax="false"
+										onclick="PrimeFaces.monitorDownload(start, stop);">
+										<p:fileDownload value="#{documentoController.arquivoDownload}" />
+									</p:commandLink>
+									<br />
+
+								</ui:repeat>
+							</p:outputPanel>
+						</div>
+
+						<div class="col-lg-12">
+							<br />
+						</div>
+
+						<div class="col-lg-12">
+
+							<p:commandButton ajax="false"
+								onclick="PF('statusDialog').show();"
+								action="#{documentoController.navAdd}" value="Novo"
+								styleClass="btn btn-primary" />
+
+							<p:commandButton ajax="false"
+								onclick="PF('statusDialog').show();"
+								action="#{documentoController.salvar}" value="Salvar"
+								styleClass="btn btn-success" />
+							<p:commandButton
+								onclick="javascript:return confirm('Deseja realmente excluir esse documento?')"
+								ajax="false" action="#{documentoController.remover}"
+								value="Excluir" styleClass="btn btn-danger" />
+
+
+						</div>
+
+					</h:form>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-body">
+
+					<h:form id="form-lista" acceptcharset="ISO-8859-1">
+
+						<p:dataTable id="tbl-documentos" var="documento"
+							value="#{documentoController.documentos}" selectionMode="single"
+							selection="#{documentoController.documentoSelecionado}"
+							rowKey="#{documento.docuId}" paginator="true" rows="20"
+							currentPageReportTemplate="{currentPage} de {totalPages}"
+							paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
+
+							<p:ajax event="rowSelect" update=":form-documento"
+								oncomplete="goTop()"
+								listener="#{documentoController.obterDocumento}" />
+
+							<p:column headerText="Documento">
+								<h:outputText
+									value="#{documento.docuDataManutencao} - #{documento.docuIdentificacao}" />
+							</p:column>
+							<p:column headerText="Forma Proteção">
+								<h:outputText value="#{documento.docuFormaProtecao}" />
+							</p:column>
+							<p:column headerText="Local Origem">
+								<h:outputText
+									value="#{documento.localOrigemByDocuIdLocalOrigem.loorDescricao}" />
+							</p:column>
+							<p:column headerText="Local Guarda">
+								<h:outputText
+									value="#{documento.localOrigemByDocuLocalGuarda.loorDescricao}" />
+							</p:column>
+							<p:column headerText="Acesso">
+								<h:outputText value="#{documento.acesso.acesDescricao}" />
+							</p:column>
+							<p:column headerText="Método Recuperação">
+								<h:outputText
+									value="#{documento.docuModRecuperacao}" />
+							</p:column>
+							<p:column headerText="Tempo Guarda Setor">
+								<h:outputText
+									value="#{documento.docuTempoGuarda}" />
+							</p:column>
+							<p:column headerText="Tempo Guarda (Arquivo morto)">
+								<h:outputText
+									value="#{documento.docuTempoGuarda}" />
+							</p:column>
+
+						</p:dataTable>
+
+
+
+
+					</h:form>
+
+				</div>
+			</div>
+
+
+		</div>
+
+
+
+
+	</ui:define>
+
+</ui:composition>
+
+
+</html>
+

@@ -1,11 +1,12 @@
 package br.com.gestaoambiental.bean;
-// Generated 15/05/2016 16:28:26 by Hibernate Tools 4.3.1.Final
+// Generated 21/05/2016 14:21:33 by Hibernate Tools 4.3.1.Final
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;

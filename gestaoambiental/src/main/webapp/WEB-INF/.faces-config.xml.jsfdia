@@ -3,88 +3,22 @@
  <PROCESS-ITEM NAME="rules:#*" PATH="/*" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#*:0" NAME="item" PATH="/*" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT
-    ID="listaFormaProtecao::#pages#formaprotecao#lista.xhtml"
-    NAME="output" PATH="/pages/formaprotecao/lista.xhtml"
-    TARGET="rules:#pages#formaprotecao#lista.xhtml"
-    TITLE="listaFormaProtecao" model-entity="JSFProcessItemOutput"/>
-  </PROCESS-ITEM>
- </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#*:1" PATH="/*" SHAPE="32,129,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#*:1" NAME="item" PATH="/*" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT
-    ID="editFormaProtecao::#pages#formaprotecao#edit.xhtml"
-    NAME="output" PATH="/pages/formaprotecao/edit.xhtml"
-    TARGET="rules:#pages#formaprotecao#edit.xhtml"
-    TITLE="editFormaProtecao" model-entity="JSFProcessItemOutput"/>
-  </PROCESS-ITEM>
- </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#*:2" PATH="/*" SHAPE="32,241,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#*:2" NAME="item" PATH="/*" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT
-    ID="detalheFormaProtecao::#pages#formaprotecao#detalhe.xhtml"
-    NAME="output" PATH="/pages/formaprotecao/detalhe.xhtml"
-    TARGET="rules:#pages#formaprotecao#detalhe.xhtml"
-    TITLE="detalheFormaProtecao" model-entity="JSFProcessItemOutput"/>
-  </PROCESS-ITEM>
- </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#pages#formaprotecao#lista.xhtml"
-  PATH="/pages/formaprotecao/lista.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#pages#formaprotecao#detalhe.xhtml"
-  PATH="/pages/formaprotecao/detalhe.xhtml" SHAPE="240,257,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#pages#formaprotecao#edit.xhtml"
-  PATH="/pages/formaprotecao/edit.xhtml" SHAPE="240,145,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#*:3" PATH="/*" SHAPE="32,353,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#*:3" NAME="item" PATH="/*" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT
-    ID="listaModuloRecuperacao::#pages#modulorecuperacao#lista.xhtml"
-    NAME="output" PATH="/pages/modulorecuperacao/lista.xhtml"
-    TARGET="rules:#pages#modulorecuperacao#lista.xhtml"
-    TITLE="listaModuloRecuperacao" model-entity="JSFProcessItemOutput"/>
-  </PROCESS-ITEM>
- </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#*:4" PATH="/*" SHAPE="32,465,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#*:4" NAME="item" PATH="/*" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT
-    ID="editModuloRecuperacao::#pages#modulorecuperacao#edit.xhtml"
-    NAME="output" PATH="/pages/modulorecuperacao/edit.xhtml"
-    TARGET="rules:#pages#modulorecuperacao#edit.xhtml"
-    TITLE="editModuloRecuperacao" model-entity="JSFProcessItemOutput"/>
-  </PROCESS-ITEM>
- </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#*:5" PATH="/*" SHAPE="32,577,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#*:5" NAME="item" PATH="/*" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT
-    ID="detalheModuloRecuperacao::#pages#modulorecuperacao#detalhe.xhtml"
-    NAME="output" PATH="/pages/modulorecuperacao/detalhe.xhtml"
-    TARGET="rules:#pages#modulorecuperacao#detalhe.xhtml"
-    TITLE="detalheModuloRecuperacao" model-entity="JSFProcessItemOutput"/>
-  </PROCESS-ITEM>
- </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#pages#modulorecuperacao#detalhe.xhtml"
-  PATH="/pages/modulorecuperacao/detalhe.xhtml" SHAPE="240,593,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#pages#modulorecuperacao#lista.xhtml"
-  PATH="/pages/modulorecuperacao/lista.xhtml" SHAPE="240,369,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#pages#modulorecuperacao#edit.xhtml"
-  PATH="/pages/modulorecuperacao/edit.xhtml" SHAPE="240,481,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#*:6" PATH="/*" SHAPE="32,689,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#*:6" NAME="item" PATH="/*" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT
     ID="listaLocalOrigem::#pages#localorigem#lista.xhtml" NAME="output"
     PATH="/pages/localorigem/lista.xhtml"
     TARGET="rules:#pages#localorigem#lista.xhtml"
     TITLE="listaLocalOrigem" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#*:7" PATH="/*" SHAPE="32,801,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#*:7" NAME="item" PATH="/*" model-entity="JSFProcessItem">
+ <PROCESS-ITEM NAME="rules:#*:1" PATH="/*" SHAPE="32,129,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#*:1" NAME="item" PATH="/*" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT
     ID="editLocalOrigem::#pages#localorigem#edit.xhtml" NAME="output"
     PATH="/pages/localorigem/edit.xhtml"
     TARGET="rules:#pages#localorigem#edit.xhtml" TITLE="editLocalOrigem" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#*:8" PATH="/*" SHAPE="32,913,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#*:8" NAME="item" PATH="/*" model-entity="JSFProcessItem">
+ <PROCESS-ITEM NAME="rules:#*:2" PATH="/*" SHAPE="32,241,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#*:2" NAME="item" PATH="/*" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT
     ID="detalheLocalOrigem::#pages#localorigem#detalhe.xhtml"
     NAME="output" PATH="/pages/localorigem/detalhe.xhtml"
@@ -92,30 +26,33 @@
     TITLE="detalheLocalOrigem" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#*:9" PATH="/*" SHAPE="32,1249,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#*:9" NAME="item" PATH="/*" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT
-    ID="listaTempoGuarda::#pages#tempoguarda#lista.xhtml" NAME="output"
-    PATH="/pages/tempoguarda/lista.xhtml"
-    TARGET="rules:#pages#tempoguarda#lista.xhtml"
-    TITLE="listaTempoGuarda" model-entity="JSFProcessItemOutput"/>
+ <PROCESS-ITEM NAME="rules:#*:3" PATH="/*" SHAPE="32,353,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#*:3" NAME="item" PATH="/*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="listaAcesso::#pages#acesso#lista.xhtml"
+    NAME="output" PATH="/pages/acesso/lista.xhtml"
+    TARGET="rules:#pages#acesso#lista.xhtml" TITLE="listaAcesso" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#*:10" PATH="/*" SHAPE="32,1025,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#*:10" NAME="item" PATH="/*" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT
-    ID="editTempoGuarda::#pages#tempoguarda#edit.xhtml" NAME="output"
-    PATH="/pages/tempoguarda/edit.xhtml"
-    TARGET="rules:#pages#tempoguarda#edit.xhtml" TITLE="editTempoGuarda" model-entity="JSFProcessItemOutput"/>
+ <PROCESS-ITEM NAME="rules:#*:4" PATH="/*" SHAPE="32,465,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#*:4" NAME="item" PATH="/*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="editAcesso::#pages#acesso#edit.xhtml"
+    NAME="output" PATH="/pages/acesso/edit.xhtml"
+    TARGET="rules:#pages#acesso#edit.xhtml" TITLE="editAcesso" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#*:11" PATH="/*" SHAPE="32,1137,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#*:11" NAME="item" PATH="/*" model-entity="JSFProcessItem">
+ <PROCESS-ITEM NAME="rules:#*:5" PATH="/*" SHAPE="32,577,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#*:5" NAME="item" PATH="/*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="detalheAcesso::#pages#acesso#detalhe.xhtml"
+    NAME="output" PATH="/pages/acesso/detalhe.xhtml"
+    TARGET="rules:#pages#acesso#detalhe.xhtml" TITLE="detalheAcesso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#*:6" PATH="/*" SHAPE="32,689,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#*:6" NAME="item" PATH="/*" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT
-    ID="detalheTempoGuarda::#pages#tempoguarda#detalhe.xhtml"
-    NAME="output" PATH="/pages/tempoguarda/detalhe.xhtml"
-    TARGET="rules:#pages#tempoguarda#detalhe.xhtml"
-    TITLE="detalheTempoGuarda" model-entity="JSFProcessItemOutput"/>
+    ID="listaDocumento::#pages#documento#lista.xhtml" NAME="output"
+    PATH="/pages/documento/lista.xhtml"
+    TARGET="rules:#pages#documento#lista.xhtml" TITLE="listaDocumento" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#pages#localorigem#detalhe.xhtml"
@@ -124,37 +61,12 @@
   PATH="/pages/localorigem/lista.xhtml" SHAPE="240,705,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#pages#localorigem#edit.xhtml"
   PATH="/pages/localorigem/edit.xhtml" SHAPE="256,817,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#pages#tempoguarda#lista.xhtml"
-  PATH="/pages/tempoguarda/lista.xhtml" SHAPE="240,1265,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#pages#tempoguarda#edit.xhtml"
-  PATH="/pages/tempoguarda/edit.xhtml" SHAPE="240,1377,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#pages#tempoguarda#detalhe.xhtml"
-  PATH="/pages/tempoguarda/detalhe.xhtml" SHAPE="240,1489,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#*:12" PATH="/*" SHAPE="32,1585,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#*:12" NAME="item" PATH="/*" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="listaAcesso::#pages#acesso#lista.xhtml"
-    NAME="output" PATH="/pages/acesso/lista.xhtml"
-    TARGET="rules:#pages#acesso#lista.xhtml" TITLE="listaAcesso" model-entity="JSFProcessItemOutput"/>
-  </PROCESS-ITEM>
- </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#*:13" PATH="/*" SHAPE="32,1697,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#*:13" NAME="item" PATH="/*" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="editAcesso::#pages#acesso#edit.xhtml"
-    NAME="output" PATH="/pages/acesso/edit.xhtml"
-    TARGET="rules:#pages#acesso#edit.xhtml" TITLE="editAcesso" model-entity="JSFProcessItemOutput"/>
-  </PROCESS-ITEM>
- </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#*:14" PATH="/*" SHAPE="32,1809,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#*:14" NAME="item" PATH="/*" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="detalheAcesso::#pages#acesso#detalhe.xhtml"
-    NAME="output" PATH="/pages/acesso/detalhe.xhtml"
-    TARGET="rules:#pages#acesso#detalhe.xhtml" TITLE="detalheAcesso" model-entity="JSFProcessItemOutput"/>
-  </PROCESS-ITEM>
- </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#pages#acesso#detalhe.xhtml"
   PATH="/pages/acesso/detalhe.xhtml" SHAPE="240,1825,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#pages#acesso#edit.xhtml"
   PATH="/pages/acesso/edit.xhtml" SHAPE="240,1713,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#pages#acesso#lista.xhtml"
   PATH="/pages/acesso/lista.xhtml" SHAPE="240,1601,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#documento#lista.xhtml"
+  PATH="/pages/documento/lista.xhtml" SHAPE="240,1937,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

@@ -6,7 +6,6 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
 import br.com.gestaoambiental.bean.LocalOrigem;
-import br.com.gestaoambiental.bean.ModuloRecuperacao;
 import br.com.gestaoambiental.connection.HibernateUtil;
 
 public class LocalOrigemDAOImpl extends DaoImpl<LocalOrigem, Integer> {

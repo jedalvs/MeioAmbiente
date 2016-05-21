@@ -1,14 +1,16 @@
 package br.com.gestaoambiental.bean;
-// Generated 15/05/2016 16:28:26 by Hibernate Tools 4.3.1.Final
+// Generated 21/05/2016 14:21:33 by Hibernate Tools 4.3.1.Final
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -26,32 +28,41 @@ public class Documento implements java.io.Serializable {
 
 	private Integer docuId;
 	private Acesso acesso;
-	private FormaProtecao formaProtecao;
 	private LocalOrigem localOrigemByDocuIdLocalOrigem;
 	private LocalOrigem localOrigemByDocuLocalGuarda;
-	private ModuloRecuperacao moduloRecuperacao;
-	private TempoGuarda tempoGuardaByDocuIdTempoGuarda;
-	private TempoGuarda tempoGuardaByDocuIdTempoGuardaArquivoMorto;
+	private Usuario usuario;
 	private Date docuDataManutencao;
 	private String docuIdentificacao;
+	private String docuModRecuperacao;
+	private String docuTempoGuarda;
+	private String docuTempoGuardaArquivoMorto;
+	private String docuFormaProtecao;
+	private String docuObs;
+	private Date docuDataCadastro;
+	private String docuChave;
 	private Set<Anexo> anexos = new HashSet<Anexo>(0);
 
 	public Documento() {
 	}
 
-	public Documento(Acesso acesso, FormaProtecao formaProtecao, LocalOrigem localOrigemByDocuIdLocalOrigem,
-			LocalOrigem localOrigemByDocuLocalGuarda, ModuloRecuperacao moduloRecuperacao,
-			TempoGuarda tempoGuardaByDocuIdTempoGuarda, TempoGuarda tempoGuardaByDocuIdTempoGuardaArquivoMorto,
-			Date docuDataManutencao, String docuIdentificacao, Set<Anexo> anexos) {
+	public Documento(Acesso acesso, LocalOrigem localOrigemByDocuIdLocalOrigem,
+			LocalOrigem localOrigemByDocuLocalGuarda, Usuario usuario, Date docuDataManutencao,
+			String docuIdentificacao, String docuModRecuperacao, String docuTempoGuarda,
+			String docuTempoGuardaArquivoMorto, String docuFormaProtecao, String docuObs, Date docuDataCadastro,
+			String docuChave, Set<Anexo> anexos) {
 		this.acesso = acesso;
-		this.formaProtecao = formaProtecao;
 		this.localOrigemByDocuIdLocalOrigem = localOrigemByDocuIdLocalOrigem;
 		this.localOrigemByDocuLocalGuarda = localOrigemByDocuLocalGuarda;
-		this.moduloRecuperacao = moduloRecuperacao;
-		this.tempoGuardaByDocuIdTempoGuarda = tempoGuardaByDocuIdTempoGuarda;
-		this.tempoGuardaByDocuIdTempoGuardaArquivoMorto = tempoGuardaByDocuIdTempoGuardaArquivoMorto;
+		this.usuario = usuario;
 		this.docuDataManutencao = docuDataManutencao;
 		this.docuIdentificacao = docuIdentificacao;
+		this.docuModRecuperacao = docuModRecuperacao;
+		this.docuTempoGuarda = docuTempoGuarda;
+		this.docuTempoGuardaArquivoMorto = docuTempoGuardaArquivoMorto;
+		this.docuFormaProtecao = docuFormaProtecao;
+		this.docuObs = docuObs;
+		this.docuDataCadastro = docuDataCadastro;
+		this.docuChave = docuChave;
 		this.anexos = anexos;
 	}
 
@@ -78,16 +89,6 @@ public class Documento implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "docu_forma_protecao")
-	public FormaProtecao getFormaProtecao() {
-		return this.formaProtecao;
-	}
-
-	public void setFormaProtecao(FormaProtecao formaProtecao) {
-		this.formaProtecao = formaProtecao;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "docu_id_local_origem")
 	public LocalOrigem getLocalOrigemByDocuIdLocalOrigem() {
 		return this.localOrigemByDocuIdLocalOrigem;
@@ -108,33 +109,13 @@ public class Documento implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "docu_id_modulo_recuperacao")
-	public ModuloRecuperacao getModuloRecuperacao() {
-		return this.moduloRecuperacao;
+	@JoinColumn(name = "docu_id_usuario")
+	public Usuario getUsuario() {
+		return this.usuario;
 	}
 
-	public void setModuloRecuperacao(ModuloRecuperacao moduloRecuperacao) {
-		this.moduloRecuperacao = moduloRecuperacao;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "docu_id_tempo_guarda")
-	public TempoGuarda getTempoGuardaByDocuIdTempoGuarda() {
-		return this.tempoGuardaByDocuIdTempoGuarda;
-	}
-
-	public void setTempoGuardaByDocuIdTempoGuarda(TempoGuarda tempoGuardaByDocuIdTempoGuarda) {
-		this.tempoGuardaByDocuIdTempoGuarda = tempoGuardaByDocuIdTempoGuarda;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "docu_id_tempo_guarda_arquivo_morto")
-	public TempoGuarda getTempoGuardaByDocuIdTempoGuardaArquivoMorto() {
-		return this.tempoGuardaByDocuIdTempoGuardaArquivoMorto;
-	}
-
-	public void setTempoGuardaByDocuIdTempoGuardaArquivoMorto(TempoGuarda tempoGuardaByDocuIdTempoGuardaArquivoMorto) {
-		this.tempoGuardaByDocuIdTempoGuardaArquivoMorto = tempoGuardaByDocuIdTempoGuardaArquivoMorto;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	@Temporal(TemporalType.DATE)
@@ -154,6 +135,70 @@ public class Documento implements java.io.Serializable {
 
 	public void setDocuIdentificacao(String docuIdentificacao) {
 		this.docuIdentificacao = docuIdentificacao;
+	}
+
+	@Column(name = "docu_mod_recuperacao")
+	public String getDocuModRecuperacao() {
+		return this.docuModRecuperacao;
+	}
+
+	public void setDocuModRecuperacao(String docuModRecuperacao) {
+		this.docuModRecuperacao = docuModRecuperacao;
+	}
+
+	@Column(name = "docu_tempo_guarda")
+	public String getDocuTempoGuarda() {
+		return this.docuTempoGuarda;
+	}
+
+	public void setDocuTempoGuarda(String docuTempoGuarda) {
+		this.docuTempoGuarda = docuTempoGuarda;
+	}
+
+	@Column(name = "docu_tempo_guarda_arquivo_morto")
+	public String getDocuTempoGuardaArquivoMorto() {
+		return this.docuTempoGuardaArquivoMorto;
+	}
+
+	public void setDocuTempoGuardaArquivoMorto(String docuTempoGuardaArquivoMorto) {
+		this.docuTempoGuardaArquivoMorto = docuTempoGuardaArquivoMorto;
+	}
+
+	@Column(name = "docu_forma_protecao")
+	public String getDocuFormaProtecao() {
+		return this.docuFormaProtecao;
+	}
+
+	public void setDocuFormaProtecao(String docuFormaProtecao) {
+		this.docuFormaProtecao = docuFormaProtecao;
+	}
+
+	@Column(name = "docu_obs", length = 500)
+	public String getDocuObs() {
+		return this.docuObs;
+	}
+
+	public void setDocuObs(String docuObs) {
+		this.docuObs = docuObs;
+	}
+
+	@Temporal(TemporalType.DATE)
+	@Column(name = "docu_data_cadastro", length = 10)
+	public Date getDocuDataCadastro() {
+		return this.docuDataCadastro;
+	}
+
+	public void setDocuDataCadastro(Date docuDataCadastro) {
+		this.docuDataCadastro = docuDataCadastro;
+	}
+
+	@Column(name = "docu_chave", length = 20)
+	public String getDocuChave() {
+		return this.docuChave;
+	}
+
+	public void setDocuChave(String docuChave) {
+		this.docuChave = docuChave;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "documento")
