@@ -1,11 +1,16 @@
 package br.com.gestaoambiental.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.model.SelectItem;
 
+import br.com.gestaoambiental.bean.Acesso;
+import br.com.gestaoambiental.bean.Empresa;
 import br.com.gestaoambiental.bean.Filial;
+import br.com.gestaoambiental.dao.EmpresaDAOImpl;
 import br.com.gestaoambiental.dao.FilialDAOImpl;
 import br.com.gestaoambiental.util.MensagemUtil;
 
@@ -14,9 +19,13 @@ import br.com.gestaoambiental.util.MensagemUtil;
 public class FilialControllerImpl implements Controller {
 
 	private Filial filial;
+	private List<SelectItem> cbEmpresa;
+	private Integer idEmpresaSelecionado;
+	
 
 	private List<Filial> filialList;
 
+	private EmpresaDAOImpl empresaDao;
 	private FilialDAOImpl filialDao;
 
 	private String descricaoFiltro;
@@ -32,13 +41,13 @@ public class FilialControllerImpl implements Controller {
 	}
 
 	public void init() {
-
+		empresaDao = new EmpresaDAOImpl();
 		filialDao = new FilialDAOImpl();
 
 	}
 
 	public String navLista() {
-
+		initCbEmpresa();
 		limparFiltro();
 		carregarLista();
 
@@ -91,7 +100,9 @@ public class FilialControllerImpl implements Controller {
 			if (validar()) {
 
 				if (filial.getFiliId() == 0) {
-
+					Empresa empresa = new Empresa();
+					empresa.setEmprId(idEmpresaSelecionado);
+					filial.setEmpresa(empresa);
 					filialDao.save(filial);
 					limparFormulario();
 					MensagemUtil.infoMsg("filial_info_sucesso");
@@ -158,6 +169,28 @@ public class FilialControllerImpl implements Controller {
 		return valido;
 
 	}
+	
+	public void initCbEmpresa() {
+		try {
+
+			this.cbEmpresa = new ArrayList<SelectItem>();
+
+			List<Empresa> empresas = empresaDao.findAll();
+
+			for (Empresa empresa : empresas) {
+
+				SelectItem s = new SelectItem();
+
+				s.setLabel(empresa.getEmprNome());
+				s.setValue(empresa.getEmprId());
+				this.cbEmpresa.add(s);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	public void limparFormulario() {
 
@@ -201,5 +234,23 @@ public class FilialControllerImpl implements Controller {
 	public void setDescricaoFiltro(String descricaoFiltro) {
 		this.descricaoFiltro = descricaoFiltro;
 	}
+
+	public List<SelectItem> getCbEmpresa() {
+		return cbEmpresa;
+	}
+
+	public void setCbEmpresa(List<SelectItem> cbEmpresa) {
+		this.cbEmpresa = cbEmpresa;
+	}
+
+	public Integer getIdEmpresaSelecionado() {
+		return idEmpresaSelecionado;
+	}
+
+	public void setIdEmpresaSelecionado(Integer idEmpresaSelecionado) {
+		this.idEmpresaSelecionado = idEmpresaSelecionado;
+	}
+	
+	
 
 }

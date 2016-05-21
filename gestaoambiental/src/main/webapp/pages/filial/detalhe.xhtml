@@ -28,7 +28,7 @@
 	<ui:define name="principal">
 		<div class="col-lg-12">
 
-			<h1>Acesso</h1>
+			<h1>Filial</h1>
 			<hr />
 
 			<h:form id="form-fornecedor" acceptcharset="ISO-8859-1">
@@ -40,7 +40,17 @@
 							<h:outputText id="descricao"
 								value="#{filialController.filial.filiNome}" />
 							<br />
-						</div>						
+						</div>	
+						<div class="col-lg-4">
+							<label for="tipoContato">Empresa</label>
+							<h:selectOneMenu filter="true" filterMatchMode="contains"
+								value="#{filialController.idEmpresaSelecionado}"
+								styleClass="form-control">
+								<f:selectItem itemValue="0" itemLabel="Selecione" />
+								<f:selectItems value="#{filialController.cbEmpresa}" />							
+							</h:selectOneMenu>
+
+						</div>					
 					</div>
 				</div>
 
