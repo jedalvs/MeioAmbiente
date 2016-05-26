@@ -18,17 +18,10 @@ public class EmpresaDAOImpl extends DaoImpl<Empresa, Integer> {
 	public List<Empresa> findByDescricao(String descricao)
 			throws Exception {
 		session = HibernateUtil.getCurrentSession();
-
 		criteria = session.createCriteria(new Empresa().getClass());
-
 		criteria.add(Restrictions.like("emprNome", "%" + descricao + "%"));
-
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
-
 		List<Empresa> empresas = criteria.list();
-
 		return empresas;
-
-	}
-
+	}	
 }

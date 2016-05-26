@@ -1,5 +1,6 @@
 package br.com.gestaoambiental.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -30,5 +31,12 @@ public class UsuarioDAOImpl extends DaoImpl<Usuario, Integer> {
 		return usuarios;
 
 	}
-
+	
+	public Usuario load(String login) throws Exception {
+		session = HibernateUtil.getCurrentSession();
+		criteria = session.createCriteria(new Usuario().getClass());
+		criteria.add(Restrictions.eq("usuaUsuario", login));
+		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		return (Usuario) criteria.uniqueResult();
+	}
 }

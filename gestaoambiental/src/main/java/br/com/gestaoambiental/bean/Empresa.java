@@ -3,7 +3,9 @@ package br.com.gestaoambiental.bean;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -25,13 +27,13 @@ public class Empresa implements java.io.Serializable {
 	private String emprNome;
 	private String emprGaragem;
 	private String emprSetor;
-	private Set<Filial> filials = new HashSet<Filial>(0);
+	private List<Filial> filials = new ArrayList<Filial>();
 	private Set<Usuario> usuarios = new HashSet<Usuario>(0);
 
 	public Empresa() {
 	}
 
-	public Empresa(String emprNome, String emprGaragem, String emprSetor, Set<Filial> filials, Set<Usuario> usuarios) {
+	public Empresa(String emprNome, String emprGaragem, String emprSetor, List<Filial> filials, Set<Usuario> usuarios) {
 		this.emprNome = emprNome;
 		this.emprGaragem = emprGaragem;
 		this.emprSetor = emprSetor;
@@ -79,11 +81,11 @@ public class Empresa implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "empresa")
-	public Set<Filial> getFilials() {
+	public List<Filial> getFilials() {
 		return this.filials;
 	}
 
-	public void setFilials(Set<Filial> filials) {
+	public void setFilials(List<Filial> filials) {
 		this.filials = filials;
 	}
 

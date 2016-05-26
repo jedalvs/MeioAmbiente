@@ -11,5 +11,4 @@ public interface UsuarioDAO {
 	public void delete(int id);
 	public List<Usuario> findAll();
 	public Usuario load(int id);
-
 }

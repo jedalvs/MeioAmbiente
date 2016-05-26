@@ -21,15 +21,24 @@ import javax.faces.model.SelectItem;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import br.com.gestaoambiental.bean.Acesso;
 import br.com.gestaoambiental.bean.Anexo;
 import br.com.gestaoambiental.bean.Documento;
+import br.com.gestaoambiental.bean.Empresa;
+import br.com.gestaoambiental.bean.Filial;
 import br.com.gestaoambiental.bean.LocalOrigem;
+import br.com.gestaoambiental.bean.Usuario;
 import br.com.gestaoambiental.dao.AcessoDAOImpl;
 import br.com.gestaoambiental.dao.AnexoDaoImpl;
 import br.com.gestaoambiental.dao.DocumentoDAOImpl;
+import br.com.gestaoambiental.dao.EmpresaDAOImpl;
+import br.com.gestaoambiental.dao.FilialDAOImpl;
 import br.com.gestaoambiental.dao.LocalOrigemDAOImpl;
+import br.com.gestaoambiental.dao.UsuarioDAOImpl;
 import br.com.gestaoambiental.util.MensagemUtil;
 
 @ManagedBean(name = "documentoController")
@@ -37,62 +46,39 @@ import br.com.gestaoambiental.util.MensagemUtil;
 public class DocumentoControllerImpl implements Controller {
 
 	private StreamedContent arquivoDownload;
-
 	private static final String FILE_PATH = "C:\\sga\\";
-
 	private List<Anexo> arquivosAnexos;
-
 	private Anexo anexoSelecionado;
-
 	private Documento documento;
-
 	private Documento documentoSelecionado;
-
 	private List<Documento> documentos;
-
 	private Acesso acesso;
-
 	private LocalOrigem localOrigem;
-
 	private LocalOrigem localGuarda;
-
 	private Set<Anexo> anexos;
-
 	private DocumentoDAOImpl documentoDao;
-
-	private AcessoDAOImpl acessoDao;
-	
+	private AcessoDAOImpl acessoDao;	
 	private LocalOrigemDAOImpl localOrigemDao;
-	
 	private AnexoDaoImpl anexoDao;
-
+	private UsuarioDAOImpl usuarioDAO;
+	private EmpresaDAOImpl empresaDAO;
+	private FilialDAOImpl filialDAO;
 	private List<SelectItem> cbAcesso;
-
 	private List<SelectItem> cbFormaProtecao;
-
 	private List<SelectItem> cbLocalOrigem;
-
 	private List<SelectItem> cbLocalGuarda;
-
 	private List<SelectItem> cbModuloRecuperacao;
-
 	private List<SelectItem> cbTempoGuarda;
-
 	private List<SelectItem> cbTempoGuardaArquivoMorto;
-
+	private List<SelectItem> cbFilial;
 	private Integer idAcessoSelecionado;
-
 	private String idFormaProtecaoSelecionado;
-
 	private Integer idLocalOrigemSelecionado;
-
 	private Integer idLocalGuardaSelecionado;
-
 	private String idModuloRecuperacaoSelecionado;
-
 	private String idTempoGuardaSelecionado;
-
 	private String idTempoGuardaArquivoMortoSelecionado;
+	private List<Filial> filiais;
 
 	private static final String PAGINA_LISTA = "listaDocumento";
 
@@ -101,16 +87,36 @@ public class DocumentoControllerImpl implements Controller {
 	}
 
 	public void init() {
-
 		documentoDao = new DocumentoDAOImpl();
 		acessoDao = new AcessoDAOImpl();		
 		localOrigemDao = new LocalOrigemDAOImpl();		
 		anexoDao = new AnexoDaoImpl();
+		usuarioDAO = new UsuarioDAOImpl();
+		empresaDAO = new EmpresaDAOImpl();
+		filialDAO = new FilialDAOImpl();
 		anexos = new HashSet<Anexo>();
 
 		arquivoDownload = new DefaultStreamedContent();
 		anexoSelecionado = new Anexo();
-
+		
+	}
+	
+	private Usuario buscarUsuario(){
+		Usuario usua = null;
+		SecurityContext contextSecurity = SecurityContextHolder.getContext();
+        if (contextSecurity instanceof SecurityContext ){
+            Authentication authentication = contextSecurity.getAuthentication();
+            if (authentication instanceof Authentication ){             	
+                String login = authentication.getName();	            	
+                try {
+					usua = usuarioDAO.load(login);
+					filiais = usua.getEmpresa().getFilials();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}   	
+            }
+        }
+        return usua;
 	}
 
 	public String navLista() {
@@ -122,9 +128,10 @@ public class DocumentoControllerImpl implements Controller {
 		initCbAcesso();		
 		initCbLocalGuarda();
 		initCbLocalOrigem();
+		//initCbFilial();
 		limparFormulario();
 		carregarLista();
-
+		documento.setUsuario(buscarUsuario());
 		return PAGINA_LISTA;
 	}
 
@@ -182,7 +189,6 @@ public class DocumentoControllerImpl implements Controller {
 
 	public String salvar() {
 		try {
-
 			if (validar()) {				
 				localOrigem = localOrigemDao.load(idLocalOrigemSelecionado);
 				localGuarda = localOrigemDao.load(idLocalGuardaSelecionado);
@@ -193,22 +199,16 @@ public class DocumentoControllerImpl implements Controller {
 				documento.setDocuModRecuperacao(idModuloRecuperacaoSelecionado);
 				documento.setLocalOrigemByDocuIdLocalOrigem(localOrigem);
 				documento.setLocalOrigemByDocuLocalGuarda(localGuarda);
-				documento.setAcesso(acesso);	
+				documento.setAcesso(acesso);
 				Set<Anexo> listaAnexo = new HashSet<Anexo>();
 
 				if (anexos.size() > 0) {
 					for (Anexo a : anexos) {
-
-						String folder = documento.getDocuIdentificacao()
-								.replace(" ", "");
+						String folder = documento.getDocuIdentificacao().replace(" ", "");
 						a.setDocumento(documento);
-						a.setAnexCaminho(a.getAnexCaminho().replace("FLAG",
-								folder));
-
+						a.setAnexCaminho(a.getAnexCaminho().replace("FLAG",	folder));
 						listaAnexo.add(a);
-
 						new File(FILE_PATH + folder).mkdir();
-
 						copyFile(a.getAnexCaminho(), a.getArquivo());
 
 					}
@@ -216,14 +216,10 @@ public class DocumentoControllerImpl implements Controller {
 				}
 
 				if (documento.getDocuId() == 0) {
-
 					documentoDao.save(documento);
 					limparFormulario();
-
 				} else {
-
 					documentoDao.update(documento);
-
 					arquivosAnexos = anexoDao.findByDocumento(documento);
 
 				}
@@ -248,121 +244,80 @@ public class DocumentoControllerImpl implements Controller {
 	}
 
 	public String remover() {
-
 		try {
-
-			documentoDao.delete(documento);
-			
+			documentoDao.delete(documento);			
 			arquivosAnexos = new ArrayList<Anexo>();
-
 			MensagemUtil.infoMsg("documento_info_sucesso_excluir");
-
 		} catch (Exception e) {
-
 			MensagemUtil.errorMsg("documento_erro_cadastro");
-
 			e.printStackTrace();
 		}
-
 		limparFormulario();
-
 		carregarLista();
-
 		return PAGINA_LISTA;
 	}
 
 	public boolean validar() {
-
 		boolean valido = true;
-
 		if (documento.getDocuDataManutencao() == null) {
-
 			MensagemUtil.warnMsg("documento_warn_datamanutencao");
-
 			valido = false;
-
 		}
 
 		if (documento.getDocuIdentificacao().equalsIgnoreCase("")) {
-
 			MensagemUtil.warnMsg("documento_warn_identificacaodocumento");
-
 			valido = false;
-
 		}
 
 		if (idFormaProtecaoSelecionado == "0") {
-
 			MensagemUtil.warnMsg("documento_warn_formaprotecao");
-
 			valido = false;
-
 		}
 
 		if (idLocalOrigemSelecionado == 0) {
-
 			MensagemUtil.warnMsg("documento_warn_localorigem");
-
 			valido = false;
-
 		}
 
 		if (idLocalGuardaSelecionado == 0) {
-
 			MensagemUtil.warnMsg("documento_warn_localguarda");
-
 			valido = false;
-
 		}
 
 		if (idAcessoSelecionado == 0) {
-
 			MensagemUtil.warnMsg("documento_warn_acesso");
-
 			valido = false;
-
 		}
 
 		if (idModuloRecuperacaoSelecionado == "0") {
-
 			MensagemUtil.warnMsg("documento_warn_metodorecuperacao");
-
 			valido = false;
-
 		}
 
 		if (idTempoGuardaSelecionado == "0") {
-
 			MensagemUtil.warnMsg("documento_warn_tempoguardasetor");
-
 			valido = false;
-
 		}
 
 		if (idTempoGuardaArquivoMortoSelecionado == "0") {
-
 			MensagemUtil.warnMsg("documento_warn_tempoguardaarquivomorto");
-
 			valido = false;
-
 		}
 
 		return valido;
 	}
 
 	public void limparFormulario() {
-
 		documento = new Documento();
+		documento.setUsuario(buscarUsuario());
 		idAcessoSelecionado = 0;
 		idFormaProtecaoSelecionado = "";
 		idLocalOrigemSelecionado = 0;
 		idLocalGuardaSelecionado = 0;
 		idModuloRecuperacaoSelecionado = "";
 		idTempoGuardaSelecionado = "";
-		idTempoGuardaArquivoMortoSelecionado = "";
-		
+		idTempoGuardaArquivoMortoSelecionado = "";		
 		arquivosAnexos = new ArrayList<Anexo>();
-
 	}
 
 	public void limparFiltro() {
@@ -420,55 +375,45 @@ public class DocumentoControllerImpl implements Controller {
 		try {
 
 			this.cbLocalGuarda = new ArrayList<SelectItem>();
-
 			List<LocalOrigem> localGuardaList = localOrigemDao.findAll();
-
 			for (LocalOrigem localGuarda : localGuardaList) {
-
 				SelectItem s = new SelectItem();
-
 				s.setLabel(localGuarda.getLoorDescricao());
 				s.setValue(localGuarda.getLoorId());
 				this.cbLocalGuarda.add(s);
-
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-
 	
-
-	
-
-	
+//	public void initCbFilial() {
+//		try {
+//			this.cbFilial = new ArrayList<SelectItem>();
+//			for (Filial filial : filiais) {
+//				SelectItem s = new SelectItem();
+//				s.setLabel(filial.getFiliNome());
+//				s.setValue(filial.getFiliId());
+//				this.cbFilial.add(s);
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
 
 	public void upload(FileUploadEvent event) {
-
 		try {
-
 			String nomeArquivo = event.getFile().getFileName();
-
-			nomeArquivo = new String(nomeArquivo.getBytes("ISO-8859-1"),
-					"UTF-8");
-
+			nomeArquivo = new String(nomeArquivo.getBytes("ISO-8859-1"),"UTF-8");
 			Anexo anexo = new Anexo();
 			anexo.setArquivo(event.getFile().getInputstream());
-			anexo.setAnexCaminho(DocumentoControllerImpl.FILE_PATH + "FLAG\\"
-					+ nomeArquivo);
+			anexo.setAnexCaminho(DocumentoControllerImpl.FILE_PATH + "FLAG\\"+ nomeArquivo);
 			anexo.setNomeArquivo(nomeArquivo);
-
-			anexos.add(anexo);
-			
+			anexos.add(anexo);			
 			arquivosAnexos.add(anexo);
-
 			MensagemUtil.infoMsg("arquivo_upload_sucesso");
-
 		} catch (IOException e) {
-
 			MensagemUtil.errorMsg("arquivo_upload_erro");
-
 			e.printStackTrace();
 		}
 

@@ -6,6 +6,7 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
 import br.com.gestaoambiental.bean.Filial;
+import br.com.gestaoambiental.bean.Usuario;
 import br.com.gestaoambiental.connection.HibernateUtil;
 
 public class FilialDAOImpl extends DaoImpl<Filial, Integer> {
@@ -29,6 +30,14 @@ public class FilialDAOImpl extends DaoImpl<Filial, Integer> {
 
 		return filiais;
 
+	}
+	
+	public Filial load(Integer idEmpresa) throws Exception {
+		session = HibernateUtil.getCurrentSession();
+		criteria = session.createCriteria(new Filial().getClass());
+		criteria.add(Restrictions.eq("empresa.emprId", idEmpresa));
+		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		return (Filial) criteria.uniqueResult();
 	}
 
 }

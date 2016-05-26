@@ -56,7 +56,7 @@ public class Usuario implements java.io.Serializable {
 		this.usuaId = usuaId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "usua_id_empresa")
 	public Empresa getEmpresa() {
 		return this.empresa;

@@ -67,7 +67,7 @@ public class Anexo implements java.io.Serializable {
 		this.anexCaminho = anexCaminho;
 	}
 
-	@Column(name = "nome_arquivo", length = 100)
+	@Column(name = "anex_nome_arquivo", length = 100)
 	public String getNomeArquivo() {
 		return nomeArquivo;
 	}

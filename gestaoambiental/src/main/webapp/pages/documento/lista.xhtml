@@ -36,7 +36,36 @@
 					<h:form id="form-documento" acceptcharset="ISO-8859-1"
 						enctype="multipart/form-data">
 						<h:inputHidden value="#{documentoController.documento.docuId}" />
-						<div class="col-lg-4">
+						<h:inputHidden value="#{documentoController.documento.usuario.usuaId}" />
+						
+						<div class="row">
+							<div class="col-lg-4">
+								<label for="usuaNome">Usuário</label>
+								<h:inputText styleClass="form-control" disabled="true"
+									value="#{documentoController.documento.usuario.usuaNome}" />
+							</div>
+							
+							<div class="col-lg-4">
+								<label for="emprNome">Empresa</label>
+								<h:inputText styleClass="form-control" disabled="true"
+									value="#{documentoController.documento.usuario.empresa.emprNome}" />
+							</div>
+							
+							<div class="col-lg-2">
+								<label for="emprGaragem">Garagem</label>
+								<h:inputText styleClass="form-control" disabled="true"
+									value="#{documentoController.documento.usuario.empresa.emprGaragem}" />
+							</div>
+							
+							<div class="col-lg-2">
+								<label for="emprSetor">Setor</label>
+								<h:inputText styleClass="form-control" disabled="true"
+									value="#{documentoController.documento.usuario.empresa.emprSetor}" />
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-lg-4">
 							<label for="tipoContato">Data Manutenção</label>
 							<p:calendar id="data-manutencao" showOn="button"
 								value="#{documentoController.documento.docuDataManutencao}"
@@ -44,7 +73,6 @@
 								pattern="dd/MM/yyyy" locale="pt" />
 
 						</div>
-
 						<div class="col-lg-4">
 							<label for="tipoContato">Identificação do Documento</label>
 							<h:inputText styleClass="form-control"
@@ -58,21 +86,18 @@
 								value="#{documentoController.idFormaProtecaoSelecionado}"
 								styleClass="form-control">
 								<f:selectItem itemValue="0" itemLabel="Selecione" />
-								<f:selectItem itemValue="1" itemLabel="Cronologica" />
-								<f:selectItem itemValue="2" itemLabel="Por pasta" />
-								<f:selectItem itemValue="3" itemLabel="Por livro" />
-								<f:selectItem itemValue="4" itemLabel="Por contrato" />
-								<f:selectItem itemValue="5" itemLabel="Fornecedor" />								
+								<f:selectItem itemValue="Cronologica" itemLabel="Cronologica" />
+								<f:selectItem itemValue="Por pasta" itemLabel="Por pasta" />
+								<f:selectItem itemValue="Por livro" itemLabel="Por livro" />
+								<f:selectItem itemValue="Por contrato" itemLabel="Por contrato" />
+								<f:selectItem itemValue="Fornecedor" itemLabel="Fornecedor" />								
 							</h:selectOneMenu>
 
 						</div>
-
-
-						<div class="col-lg-12">
-							<br />
 						</div>
-
-						<div class="col-lg-4">
+						
+						<div class="row">
+							<div class="col-lg-4">
 							<label for="tipoContato">Local origem</label>
 							<h:selectOneMenu filter="true" filterMatchMode="contains"
 								value="#{documentoController.idLocalOrigemSelecionado}"
@@ -102,20 +127,18 @@
 							</h:selectOneMenu>
 
 						</div>
-
-						<div class="col-lg-12">
-							<br />
 						</div>
 
-						<div class="col-lg-4">
+						<div class="row">
+							<div class="col-lg-4">
 							<label for="tipoContato">Método Recuperação</label>
 							<h:selectOneMenu filter="true" filterMatchMode="contains"
 								value="#{documentoController.idModuloRecuperacaoSelecionado}"
 								styleClass="form-control">
 								<f:selectItem itemValue="0" itemLabel="Selecione" />
-								<f:selectItem itemValue="1" itemLabel="AALP" />
-								<f:selectItem itemValue="2" itemLabel="PAQ" />
-								<f:selectItem itemValue="3" itemLabel="AECB" />							
+								<f:selectItem itemValue="AALP" itemLabel="AALP" />
+								<f:selectItem itemValue="PAQ" itemLabel="PAQ" />
+								<f:selectItem itemValue="AECB" itemLabel="AECB" />							
 							</h:selectOneMenu>
 
 						</div>
@@ -126,13 +149,13 @@
 								value="#{documentoController.idTempoGuardaSelecionado}"
 								styleClass="form-control">
 								<f:selectItem itemValue="0" itemLabel="Selecione" />
-								<f:selectItem itemValue="1" itemLabel="1 ano" />
-								<f:selectItem itemValue="2" itemLabel="2 anos" />
-								<f:selectItem itemValue="3" itemLabel="3 anos" />
-								<f:selectItem itemValue="4" itemLabel="4 anos" />
-								<f:selectItem itemValue="5" itemLabel="5 anos" />
-								<f:selectItem itemValue="6" itemLabel="Indeterminado" />
-								<f:selectItem itemValue="7" itemLabel="Permanente" />
+								<f:selectItem itemValue="1 ano" itemLabel="1 ano" />
+								<f:selectItem itemValue="2 anos" itemLabel="2 anos" />
+								<f:selectItem itemValue="3 anos" itemLabel="3 anos" />
+								<f:selectItem itemValue="4 anos" itemLabel="4 anos" />
+								<f:selectItem itemValue="5 anos" itemLabel="5 anos" />
+								<f:selectItem itemValue="Indeterminado" itemLabel="Indeterminado" />
+								<f:selectItem itemValue="Permanente" itemLabel="Permanente" />
 							</h:selectOneMenu>
 
 						</div>
@@ -143,26 +166,29 @@
 								value="#{documentoController.idTempoGuardaArquivoMortoSelecionado}"
 								styleClass="form-control">
 								<f:selectItem itemValue="0" itemLabel="Selecione" />
-								<f:selectItem itemValue="1" itemLabel="1 ano" />
-								<f:selectItem itemValue="2" itemLabel="2 anos" />
-								<f:selectItem itemValue="3" itemLabel="3 anos" />
-								<f:selectItem itemValue="4" itemLabel="4 anos" />
-								<f:selectItem itemValue="5" itemLabel="5 anos" />
-								<f:selectItem itemValue="6" itemLabel="Indeterminado" />
-								<f:selectItem itemValue="7" itemLabel="Permanente" />
+								<f:selectItem itemValue="1 ano" itemLabel="1 ano" />
+								<f:selectItem itemValue="2 anos" itemLabel="2 anos" />
+								<f:selectItem itemValue="3 anos" itemLabel="3 anos" />
+								<f:selectItem itemValue="4 anos" itemLabel="4 anos" />
+								<f:selectItem itemValue="5 anos" itemLabel="5 anos" />
+								<f:selectItem itemValue="Indeterminado" itemLabel="Indeterminado" />
+								<f:selectItem itemValue="Permanente" itemLabel="Permanente" />
 							</h:selectOneMenu>
 
 						</div>
-
-						<div class="col-lg-12">
-							<br />
 						</div>
 
-						<div class="col-lg-6">
+						
+
+						<div class="row">
+							<div class="col-lg-6">
 							<label for="tipoContato">Anexo</label><br />
 							<p:fileUpload multiple="true" sizeLimit="5242880"
 								allowTypes="/(\.|\/)(doc|docx|pdf)$/"
 								fileUploadListener="#{documentoController.upload}"
+								label="Buscar"
+								cancelLabel="Cancelar"
+								uploadLabel="Enviar"
 								mode="advanced" update="mensagens, :form-documento:pnl-anexo" />
 
 						</div>
@@ -183,13 +209,9 @@
 								</ui:repeat>
 							</p:outputPanel>
 						</div>
-
-						<div class="col-lg-12">
-							<br />
 						</div>
-
-						<div class="col-lg-12">
-
+						<div class="row">
+							<div class="col-lg-12">
 							<p:commandButton ajax="false"
 								onclick="PF('statusDialog').show();"
 								action="#{documentoController.navAdd}" value="Novo"
@@ -204,17 +226,14 @@
 								ajax="false" action="#{documentoController.remover}"
 								value="Excluir" styleClass="btn btn-danger" />
 
-
 						</div>
-
+						</div>
 					</h:form>
 				</div>
 			</div>
 			<div class="panel panel-default">
 				<div class="panel-body">
-
 					<h:form id="form-lista" acceptcharset="ISO-8859-1">
-
 						<p:dataTable id="tbl-documentos" var="documento"
 							value="#{documentoController.documentos}" selectionMode="single"
 							selection="#{documentoController.documentoSelecionado}"
@@ -228,7 +247,9 @@
 
 							<p:column headerText="Documento">
 								<h:outputText
-									value="#{documento.docuDataManutencao} - #{documento.docuIdentificacao}" />
+									value="#{documento.docuDataManutencao}" >
+									  <f:convertDateTime pattern="dd/MM/yyyy" />
+								</h:outputText>
 							</p:column>
 							<p:column headerText="Forma Proteção">
 								<h:outputText value="#{documento.docuFormaProtecao}" />
@@ -256,27 +277,11 @@
 								<h:outputText
 									value="#{documento.docuTempoGuarda}" />
 							</p:column>
-
 						</p:dataTable>
-
-
-
-
 					</h:form>
-
 				</div>
 			</div>
-
-
 		</div>
-
-
-
-
 	</ui:define>
-
 </ui:composition>
-
-
 </html>
-
