@@ -7,24 +7,43 @@
 
 <ui:composition template="/pages/layout/layout.xhtml">
 	<ui:define name="principal">
-	
-		<div class="panel-body">
-			<div class="col-lg-12">
-				 <h:form id="frm" prependId="false">
-		 			<p:inputText id="j_username" size="30" required="true" requiredMessage="E-mail obrigatório"/> 	
-			 		<p:watermark for="j_username" value="E-mail" />		 		
-			 		<p:spacer height="10"></p:spacer>  
-			 		<p:password id="j_password" size="15" required="true" requiredMessage="Senha obrigatório"/> 
-			 		<p:watermark for="j_password" value="Senha" /> 		 		
-			 		<p:spacer height="10"></p:spacer>   
-			 		<p:commandButton type="submit" id="login" value="Login"
-	        				action="#{loginController.login()}" ajax="false" styleClass="btn btn-primary" />
-	        		
-				 </h:form>
-			</div>						
-		</div>
+		<div class="row">
+			<div class="col-lg-6 col-centered">
+				<h1>Login</h1>
+				<hr />
+				<div class="panel panel-primary">
+					<div class="panel-body">
+						<h:form id="frm" prependId="false">
+							<div class="row">
+								<div class="col-lg-12">
+									<p:inputText id="j_username"  style="width:100%" required="true" requiredMessage="E-mail obrigatório"/> 	
+					 				<p:watermark for="j_username" value="E-mail" />	
+								</div>
+							</div>	
+							<br></br>						 
+				 			<div class="row">
+				 				<div class="col-lg-12">
+				 					<p:password id="j_password" style="width:100%" required="true" requiredMessage="Senha obrigatório"/> 
+					 				<p:watermark for="j_password" value="Senha" /> 	
+				 				</div>
+				 			</div>
+				 				 		
+					 		<p:spacer height="10"></p:spacer>   
+					 		<div class="row">
+					 			<div class="col-lg-6">
+					 				<p:commandButton type="submit" id="login" value="Login"
+			        				action="#{loginController.login()}" ajax="false" styleClass="btn btn-primary" />
+					 			</div>					 			
+					 		</div>
+			        		
+						 </h:form>
+
+					</div>
+				</div>
+				<hr />
+			</div>
 		
-	
+		</div>
 		
 	</ui:define>
 

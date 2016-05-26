@@ -28,7 +28,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import br.com.gestaoambiental.bean.Acesso;
 import br.com.gestaoambiental.bean.Anexo;
 import br.com.gestaoambiental.bean.Documento;
-import br.com.gestaoambiental.bean.Empresa;
 import br.com.gestaoambiental.bean.Filial;
 import br.com.gestaoambiental.bean.LocalOrigem;
 import br.com.gestaoambiental.bean.Usuario;
@@ -155,36 +154,27 @@ public class DocumentoControllerImpl implements Controller {
 
 	public void carregarLista() {
 		try {
-
 			documentos = documentoDao.findAll();
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public void obterDocumento() {
 		documento = documentoSelecionado;
 		idAcessoSelecionado = documentoSelecionado.getAcesso().getAcesId();		
-		idLocalOrigemSelecionado = documentoSelecionado
-				.getLocalOrigemByDocuIdLocalOrigem().getLoorId();
-		idLocalGuardaSelecionado = documentoSelecionado
-				.getLocalOrigemByDocuLocalGuarda().getLoorId();		
-		
+		idLocalOrigemSelecionado = documentoSelecionado.getLocalOrigemByDocuIdLocalOrigem().getLoorId();
+		idLocalGuardaSelecionado = documentoSelecionado.getLocalOrigemByDocuLocalGuarda().getLoorId();	
 		idFormaProtecaoSelecionado = documentoSelecionado.getDocuFormaProtecao();
 		idTempoGuardaSelecionado = documentoSelecionado.getDocuTempoGuarda();
 		idTempoGuardaArquivoMortoSelecionado = documentoSelecionado.getDocuTempoGuardaArquivoMorto();
 		idModuloRecuperacaoSelecionado = documentoSelecionado.getDocuModRecuperacao();
+		
 		try {
-
 			arquivosAnexos = anexoDao.findByDocumento(documento);
-
 		} catch (Exception e) {
-
 			e.printStackTrace();
 		}
-
 	}
 
 	public String salvar() {
@@ -223,23 +213,15 @@ public class DocumentoControllerImpl implements Controller {
 					arquivosAnexos = anexoDao.findByDocumento(documento);
 
 				}
-
 				MensagemUtil.infoMsg("documento_info_sucesso");
-
 			}
-
 		} catch (Exception e) {
-
 			MensagemUtil.errorMsg("documento_erro_cadastro");
 			e.printStackTrace();
-
 		} finally {
 			anexos = new HashSet<Anexo>();
-
 		}
-
 		carregarLista();
-
 		return PAGINA_LISTA;
 	}
 
@@ -303,7 +285,6 @@ public class DocumentoControllerImpl implements Controller {
 			MensagemUtil.warnMsg("documento_warn_tempoguardaarquivomorto");
 			valido = false;
 		}
-
 		return valido;
 	}
 
@@ -322,48 +303,32 @@ public class DocumentoControllerImpl implements Controller {
 
 	public void limparFiltro() {
 		// TODO Auto-generated method stub
-
 	}
 
 	public void initCbAcesso() {
 		try {
-
 			this.cbAcesso = new ArrayList<SelectItem>();
-
 			List<Acesso> acessos = acessoDao.findAll();
-
 			for (Acesso acesso : acessos) {
-
 				SelectItem s = new SelectItem();
-
 				s.setLabel(acesso.getAcesDescricao());
 				s.setValue(acesso.getAcesId());
 				this.cbAcesso.add(s);
-
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-
-	
+	}	
 
 	public void initCbLocalOrigem() {
 		try {
-
 			this.cbLocalOrigem = new ArrayList<SelectItem>();
-
 			List<LocalOrigem> localOrigemList = localOrigemDao.findAll();
-
 			for (LocalOrigem localOrigem : localOrigemList) {
-
 				SelectItem s = new SelectItem();
-
 				s.setLabel(localOrigem.getLoorDescricao());
 				s.setValue(localOrigem.getLoorId());
 				this.cbLocalOrigem.add(s);
-
 			}
 
 		} catch (Exception e) {
@@ -373,7 +338,6 @@ public class DocumentoControllerImpl implements Controller {
 
 	public void initCbLocalGuarda() {
 		try {
-
 			this.cbLocalGuarda = new ArrayList<SelectItem>();
 			List<LocalOrigem> localGuardaList = localOrigemDao.findAll();
 			for (LocalOrigem localGuarda : localGuardaList) {
@@ -416,26 +380,20 @@ public class DocumentoControllerImpl implements Controller {
 			MensagemUtil.errorMsg("arquivo_upload_erro");
 			e.printStackTrace();
 		}
-
 	}
 
 	public void copyFile(String fileName, InputStream in) {
 		try {
-
 			// write the inputStream to a FileOutputStream
 			OutputStream out = new FileOutputStream(new File(fileName));
-
 			int read = 0;
 			byte[] bytes = new byte[1024];
-
 			while ((read = in.read(bytes)) != -1) {
 				out.write(bytes, 0, read);
 			}
-
 			in.close();
 			out.flush();
 			out.close();
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -443,54 +401,35 @@ public class DocumentoControllerImpl implements Controller {
 
 	public static String dateToString(Date data) {
 		SimpleDateFormat out = new SimpleDateFormat("yyyyMMdd_hhmmss");
-
 		String result;
-
 		if (data != null) {
 			result = out.format(data);
 		} else {
 			result = "";
 		}
-
 		return result;
 	}
 
 	public void baixarArquivo(String caminho, String nomeArquivo) {
-
 		try {
-
 			String filepath = caminho.replace("\\", "\\\\");
 			InputStream stream = new FileInputStream(new File(filepath));
-
 			String extencao = buscarExtencao(filepath);
-
 			if (extencao.equalsIgnoreCase("pdf")) {
-
-				arquivoDownload = new DefaultStreamedContent(stream,
-						"application/pdf", nomeArquivo);
-
+				arquivoDownload = new DefaultStreamedContent(stream, "application/pdf", nomeArquivo);
 			}
-
 			if (extencao.equalsIgnoreCase("doc")) {
-
-				arquivoDownload = new DefaultStreamedContent(stream,
-						"application/msword", nomeArquivo);
-
+				arquivoDownload = new DefaultStreamedContent(stream, "application/msword", nomeArquivo);
 			}
 
 			if (extencao.equalsIgnoreCase("docx")) {
-
-				arquivoDownload = new DefaultStreamedContent(
-						stream,
+				arquivoDownload = new DefaultStreamedContent(stream, 
 						"application/vnd.openxmlformats-officedocument.wordprocessingml.document",
 						nomeArquivo);
-
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public String buscarExtencao(String path) {
@@ -501,7 +440,6 @@ public class DocumentoControllerImpl implements Controller {
 		while (st.hasMoreTokens()) {
 			tokens.add(st.nextToken());
 		}
-
 		String extencao = tokens.get(1).trim();
 		return extencao;
 	}
@@ -738,5 +676,4 @@ public class DocumentoControllerImpl implements Controller {
 		// TODO Auto-generated method stub
 
 	}
-
 }
