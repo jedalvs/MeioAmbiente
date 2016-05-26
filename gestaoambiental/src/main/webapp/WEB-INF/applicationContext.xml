@@ -12,6 +12,11 @@
 		<intercept-url pattern="/pages/tempoguarda/**" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/pages/localorigem/**" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/pages/acesso/**" access="hasRole('ROLE_ADMIN')" />		
+		<intercept-url pattern="/pages/documento/**" access="hasRole('ROLE_ADMIN')" />		
+		<intercept-url pattern="/pages/usuario/**" access="hasRole('ROLE_ADMIN')" />		
+		<intercept-url pattern="/pages/empresa/**" access="hasRole('ROLE_ADMIN')" />	
+		<intercept-url pattern="/pages/filial/**" access="hasRole('ROLE_ADMIN')" />		
+			
         <form-login login-page="/pages/login.xhtml" 
         	default-target-url="/pages/index.xhtml" 
         	authentication-failure-url="/pages/login.xhtml?erro=true"/>
