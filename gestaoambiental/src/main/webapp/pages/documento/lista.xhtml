@@ -177,6 +177,30 @@
 
 						</div>
 						</div>
+                                                
+                                                
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+							<label>Data  de Vencimento</label>
+							<p:calendar id="data-vencimento" showOn="button"
+                                                                    value="#{documentoController.documento.docuDataVencimento}"
+								showButtonPanel="true" navigator="true" readonlyInput="true"
+								pattern="dd/MM/yyyy" locale="pt" />
+                                                    </div>
+                                                    <div class="col-lg-4">
+							<label>Prazo para Renovação</label>
+							<h:selectOneMenu filter="true" filterMatchMode="contains"
+                                                                         value="#{documentoController.documento.docuQtdDiasRenovacao}"
+								styleClass="form-control">
+								<f:selectItem itemValue="0" itemLabel="Selecione" />
+								<f:selectItem itemValue="30" itemLabel="30 dias" />
+								<f:selectItem itemValue="60" itemLabel="60 dias" />
+                                                                <f:selectItem itemValue="90" itemLabel="90 dias" />
+								<f:selectItem itemValue="120" itemLabel="120 dias" />
+							</h:selectOneMenu>
+
+						</div>
+                                                </div>
 
 						
 

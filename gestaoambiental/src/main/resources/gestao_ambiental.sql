@@ -158,3 +158,11 @@ CREATE TABLE `usuario` (
 -- ----------------------------
 INSERT INTO `usuario` VALUES ('1', 'Fernando', 'fernando', '123', '1', 'ROLE_ADMIN');
 INSERT INTO `usuario` VALUES ('2', 'Novo', 'novo', '123', '1', 'ROLE_ADMIN');
+
+-- ----------------------------
+-- Alter Documento
+-- ----------------------------
+ALTER TABLE `gestao_ambiental`.`documento` 
+ADD COLUMN `docu_data_emissao` DATE NULL AFTER `docu_chave`,
+ADD COLUMN `docu_qtd_dias_renovacao` INT NULL AFTER `docu_data_emissao`,
+ADD COLUMN `docu_data_vencimento` DATE NULL AFTER `docu_qtd_dias_renovacao`;

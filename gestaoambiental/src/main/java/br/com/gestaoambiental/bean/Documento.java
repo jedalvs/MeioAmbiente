@@ -43,6 +43,10 @@ public class Documento implements java.io.Serializable {
 	private Date docuDataCadastro;
 	private String docuChave;
 	private Set<Anexo> anexos = new HashSet<Anexo>(0);
+        
+        private Date docuDataEmissao;
+        private Date docuDataVencimento;
+        private Integer docuQtdDiasRenovacao;
 
 	public Documento() {
 	}
@@ -212,5 +216,36 @@ public class Documento implements java.io.Serializable {
 	public void setAnexos(Set<Anexo> anexos) {
 		this.anexos = anexos;
 	}
+
+        @Temporal(TemporalType.DATE)
+	@Column(name = "docu_data_emissao", length = 10)
+        public Date getDocuDataEmissao() {
+            return docuDataEmissao;
+        }
+
+        public void setDocuDataEmissao(Date docuDataEmissao) {
+            this.docuDataEmissao = docuDataEmissao;
+        }
+
+        @Temporal(TemporalType.DATE)
+	@Column(name = "docu_data_vencimento", length = 10)
+        public Date getDocuDataVencimento() {
+            return docuDataVencimento;
+        }
+
+        public void setDocuDataVencimento(Date docuDataVencimento) {
+            this.docuDataVencimento = docuDataVencimento;
+        }
+
+        @Column(name = "docu_qtd_dias_renovacao")
+        public Integer getDocuQtdDiasRenovacao() {
+            return docuQtdDiasRenovacao;
+        }
+
+        public void setDocuQtdDiasRenovacao(Integer docuQtdDiasRenovacao) {
+            this.docuQtdDiasRenovacao = docuQtdDiasRenovacao;
+        }
+        
+        
 
 }
