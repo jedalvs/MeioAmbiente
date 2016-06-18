@@ -258,7 +258,7 @@
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<h:form id="form-lista" acceptcharset="ISO-8859-1">
-						<p:dataTable id="tbl-documentos" var="documento"
+						<p:dataTable id="tbl-documentos" var="documento" reflow="true"
 							value="#{documentoController.documentos}" selectionMode="single"
 							selection="#{documentoController.documentoSelecionado}"
 							rowKey="#{documento.docuId}" paginator="true" rows="20"
@@ -268,6 +268,12 @@
 							<p:ajax event="rowSelect" update=":form-documento"
 								oncomplete="goTop()"
 								listener="#{documentoController.obterDocumento}" />
+							
+							<p:column headerText="Identificação" filterBy="#{documento.docuIdentificacao}" filterEvent="change" filterMatchMode="contains">
+								<h:outputText
+									value="#{documento.docuIdentificacao}" >
+								</h:outputText>
+							</p:column>
 
 							<p:column headerText="Documento">
 								<h:outputText

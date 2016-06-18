@@ -182,3 +182,14 @@ body {
 		color: #FFFFFF;
 	}
 }
+
+.ui-widget,.ui-widget .ui-widget {
+    font-size: 90% !important;
+}
+
+.btn {
+  padding: 6px 8px;
+  font-size: 10px;
+  line-height: 1.428571429;
+}
+
