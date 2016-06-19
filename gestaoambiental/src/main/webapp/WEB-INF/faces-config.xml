@@ -157,6 +157,25 @@
 		</navigation-case>
 	</navigation-rule>
 	
+	
+	<navigation-rule>
+		<from-view-id>/*</from-view-id>
+		<navigation-case>
+			<from-outcome>relTodosDocumentos</from-outcome>
+			<to-view-id>/pages/relatorio/relTodosDocumentos.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/*</from-view-id>
+		<navigation-case>
+			<from-outcome>relDocumentosVencidos</from-outcome>
+			<to-view-id>/pages/relatorio/relDocumentosVencidos.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
 	<application>
 		<locale-config>
 			<default-locale>pt_BR</default-locale>

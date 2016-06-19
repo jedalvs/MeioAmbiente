@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relTodosDocumentos" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b0d53b6f-5dc8-435a-a1d8-10fa31e41858">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="docuIdentificacao" class="java.lang.String"/>
+	<field name="docuTempoGuarda" class="java.lang.String"/>
+	<field name="docuModRecuperacao" class="java.lang.String"/>
+	<field name="docuDataEmissao" class="java.util.Date"/>
+	<field name="docuDataVencimento" class="java.util.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="20" uuid="9be0616c-4f5a-4520-a15b-c1a93365b42f"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DOCUMENTOS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="34" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="154" height="20" uuid="e0b3c98f-03f9-47f9-bbcb-efe2ea4280bc"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Identificação]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="154" y="0" width="100" height="20" uuid="1d3f998d-6805-4980-a29b-00a31faec2fe"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Tempo de guarda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="254" y="0" width="100" height="20" uuid="19957e73-f243-4a4c-af81-ec13a53fe87b"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Recuperação]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="354" y="0" width="100" height="20" uuid="0465b4c7-0c09-4491-8b39-7926322f46ac"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Data de emissão]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="454" y="0" width="100" height="20" uuid="ccf37578-1c49-47ec-af95-d5c62249a609"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Data de vencimento]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="154" height="20" uuid="1a4db85b-50f7-4a45-8b73-267553d21743"/>
+				<textFieldExpression><![CDATA[$F{docuIdentificacao}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="455" y="0" width="100" height="20" uuid="11729ea9-0039-45d8-a539-db8b63cc721c"/>
+				<textFieldExpression><![CDATA[$F{docuDataVencimento}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="354" y="0" width="100" height="20" uuid="434ce361-25d8-46ff-872f-b08c7702c04b"/>
+				<textFieldExpression><![CDATA[$F{docuDataEmissao}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="254" y="0" width="100" height="20" uuid="2888e1bf-70f4-49d8-af5f-31636e7dc65b"/>
+				<textFieldExpression><![CDATA[$F{docuModRecuperacao}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="154" y="0" width="100" height="20" uuid="0759d31a-bdf0-46b2-bfbe-c82534fb5c14"/>
+				<textFieldExpression><![CDATA[$F{docuTempoGuarda}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

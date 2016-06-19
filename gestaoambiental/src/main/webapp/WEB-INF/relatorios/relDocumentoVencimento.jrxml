@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relDocumentoVencimento" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="78f53a87-4274-482c-8361-a17d3ee085e7">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="vencimento" class="java.util.Date"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="docuIdentificacao" class="java.lang.String"/>
+	<field name="docuTempoGuarda" class="java.lang.String"/>
+	<field name="docuModRecuperacao" class="java.lang.String"/>
+	<field name="docuDataEmissao" class="java.util.Date"/>
+	<field name="docuDataVencimento" class="java.util.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="20" uuid="290e615a-90cb-4eda-96c3-a3c64e921757"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[DOCUMENTOS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="454" y="0" width="100" height="20" uuid="9b3ce070-15b2-4d9b-ad0d-99dcd90e17ab"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Data de vencimento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="254" y="0" width="100" height="20" uuid="5865a6d9-f24f-45e8-b287-2e9557e34552"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Recuperação]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="354" y="0" width="100" height="20" uuid="77eef043-ac10-4485-b984-7f81b00377d8"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Data de emissão]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="154" y="0" width="100" height="20" uuid="f9d41d7c-5b67-4e00-8594-53a61926e8b3"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Local de guarda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="154" height="20" uuid="1bf2680e-c42d-41fe-9100-c75fe807b824"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Identificação]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="1" width="154" height="20" uuid="40e600e7-6e3d-4912-a4f4-c69d46829527"/>
+				<textFieldExpression><![CDATA[$F{docuIdentificacao}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="154" y="1" width="100" height="20" uuid="adef8724-f4c1-49f1-9a0b-dccff9f64cc6"/>
+				<textFieldExpression><![CDATA[$F{docuTempoGuarda}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="354" y="1" width="100" height="20" uuid="73cd8dd6-5c55-4aee-b795-594483048556"/>
+				<textFieldExpression><![CDATA[$F{docuDataEmissao}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="455" y="1" width="100" height="20" uuid="875f7033-cfae-4d08-b53a-7d6aae7deb07"/>
+				<textFieldExpression><![CDATA[$F{docuDataVencimento}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="254" y="1" width="100" height="20" uuid="9c48f497-7838-492f-80b6-adee5e228676"/>
+				<textFieldExpression><![CDATA[$F{docuModRecuperacao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

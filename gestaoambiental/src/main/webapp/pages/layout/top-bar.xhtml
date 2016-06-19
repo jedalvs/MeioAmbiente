@@ -70,6 +70,18 @@
 							<li><p:commandLink ajax="false" styleClass="navbar-link"
 									value="Documento" action="#{documentoController.navLista}" /></li>
 						</ul></li>
+						
+						
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-expanded="false"><h:outputText
+								value="Relatórios" /><span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><p:commandLink ajax="false" styleClass="navbar-link"
+									value="Todos os documentos" action="#{relatorioController.navListaTodos}" /></li>
+									
+							<li><p:commandLink ajax="false" styleClass="navbar-link"
+									value="Documentos vencidos" action="#{relatorioController.navListaVencimento}" /></li>
+						</ul></li>
 
 				</ul>
 
