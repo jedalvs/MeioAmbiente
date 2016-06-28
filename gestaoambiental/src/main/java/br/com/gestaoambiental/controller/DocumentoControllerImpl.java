@@ -78,11 +78,25 @@ public class DocumentoControllerImpl implements Controller {
     private String idTempoGuardaSelecionado;
     private String idTempoGuardaArquivoMortoSelecionado;
     private List<Filial> filiais;
-
+   
     private static final String PAGINA_LISTA = "listaDocumento";
 
     public DocumentoControllerImpl() {
         init();
+    }
+    
+    public String notificaoDocumento(Documento doc) {
+        init();
+
+        limparFormulario();
+        carregarLista();
+
+        setDocumentoSelecionado(doc);
+        obterDocumento();
+
+        String url = "documento/lista.xhtml?faces-redirect=true";
+
+        return url;
     }
 
    
@@ -110,8 +124,8 @@ public class DocumentoControllerImpl implements Controller {
         initCbLocalGuarda();
         initCbLocalOrigem();
         
-        //setDocumentoSelecionado(doc);
-        //obterDocumento();
+//        setDocumentoSelecionado(doc);
+//        obterDocumento();
 
     }
 
