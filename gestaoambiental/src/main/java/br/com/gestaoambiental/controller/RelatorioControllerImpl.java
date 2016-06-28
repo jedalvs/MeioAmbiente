@@ -23,6 +23,7 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 public class RelatorioControllerImpl implements RelController {
 
 	private Date dataVencimento;
+	private Date dataVencimentoFim;
 
 	
 	private static final String PAGINA_REL_TODOS = "relTodosDocumentos";
@@ -82,7 +83,7 @@ public class RelatorioControllerImpl implements RelController {
             ServletOutputStream servletOutputStream = response.getOutputStream(); 
             HashMap<String, Object> param = new HashMap<String, Object>();			
         	param.put("vencimento", dataVencimento);         	
-        	List<Documento> documentos =  documentoDao.findAllVencimento(dataVencimento);        	
+        	List<Documento> documentos =  documentoDao.findAllVencimento(dataVencimento, dataVencimentoFim);        	
             JasperRunManager.runReportToPdfStream(reportStream, servletOutputStream, null, new JRBeanCollectionDataSource(documentos)); 
             servletOutputStream.flush();
             servletOutputStream.close();
@@ -108,4 +109,14 @@ public class RelatorioControllerImpl implements RelController {
 	public void setDataVencimento(Date dataVencimento) {
 		this.dataVencimento = dataVencimento;
 	}
+
+	public Date getDataVencimentoFim() {
+		return dataVencimentoFim;
+	}
+
+	public void setDataVencimentoFim(Date dataVencimentoFim) {
+		this.dataVencimentoFim = dataVencimentoFim;
+	}
+	
+	
 }

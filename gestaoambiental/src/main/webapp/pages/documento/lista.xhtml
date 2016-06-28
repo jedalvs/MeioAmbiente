@@ -66,13 +66,14 @@
 						
 						<div class="row">
 							<div class="col-lg-4">
-							<label for="tipoContato">Data Manutenção</label>
-							<p:calendar id="data-manutencao" showOn="button"
-								value="#{documentoController.documento.docuDataManutencao}"
-								showButtonPanel="true" navigator="true" readonlyInput="true"
-								pattern="dd/MM/yyyy" locale="pt" />
-
-						</div>
+								<label for="tipoContato">Data Manutenção</label><BR />
+								<p:calendar id="data-manutencao" showOn="button"
+									value="#{documentoController.documento.docuDataManutencao}"
+									showButtonPanel="true" navigator="true" readonlyInput="true"
+									pattern="dd/MM/yyyy" locale="pt"/>
+								
+	
+							</div>
 						<div class="col-lg-4">
 							<label for="tipoContato">Identificação do Documento</label>
 							<h:inputText styleClass="form-control"
@@ -221,13 +222,14 @@
 								<ui:repeat var="anexo"
 									value="#{documentoController.arquivosAnexos}"
 									varStatus="status">
-
-									<p:commandLink
+									
+									<p:commandButton
 										actionListener="#{documentoController.baixarArquivo(anexo.anexCaminho, anexo.nomeArquivo)}"
-										value="#{anexo.nomeArquivo}" ajax="false"
-										onclick="PrimeFaces.monitorDownload(start, stop);">
-										<p:fileDownload value="#{documentoController.arquivoDownload}" />
-									</p:commandLink>
+										value="#{anexo.nomeArquivo}" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s">
+								        <p:fileDownload value="#{documentoController.arquivoDownload}" />
+								    </p:commandButton>
+
+									
 									<br />
 
 								</ui:repeat>
@@ -266,7 +268,7 @@
 							paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
 
 							<p:ajax event="rowSelect" update=":form-documento"
-								oncomplete="goTop()"
+								global="true"
 								listener="#{documentoController.obterDocumento}" />
 							
 							<p:column headerText="Identificação" filterBy="#{documento.docuIdentificacao}" filterEvent="change" filterMatchMode="contains">

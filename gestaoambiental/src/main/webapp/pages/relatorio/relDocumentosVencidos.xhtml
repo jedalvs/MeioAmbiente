@@ -37,10 +37,18 @@
 						enctype="multipart/form-data">
 					
 						<div class="row">
-							<div class="col-lg-12">
-								<label>Data de Vencimento</label>
-								<p:calendar id="data-vencimento" showOn="button"
+							<div class="col-lg-6">
+								<label>Data início</label>
+								<p:calendar id="data-vencimento-inicio" showOn="button"
 									value="#{relatorioController.dataVencimento}"
+									showButtonPanel="true" navigator="true" readonlyInput="true"
+									pattern="dd/MM/yyyy" locale="pt" />
+							</div>
+							
+							<div class="col-lg-6">
+								<label>Data fim</label>
+								<p:calendar id="data-vencimento-fim" showOn="button"
+									value="#{relatorioController.dataVencimentoFim}"
 									showButtonPanel="true" navigator="true" readonlyInput="true"
 									pattern="dd/MM/yyyy" locale="pt" />
 							</div>

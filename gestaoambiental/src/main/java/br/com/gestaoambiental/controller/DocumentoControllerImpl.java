@@ -15,7 +15,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.model.SelectItem;
 
 import org.primefaces.event.FileUploadEvent;
@@ -41,7 +41,7 @@ import br.com.gestaoambiental.dao.UsuarioDAOImpl;
 import br.com.gestaoambiental.util.MensagemUtil;
 
 @ManagedBean(name = "documentoController")
-@SessionScoped
+@ViewScoped
 public class DocumentoControllerImpl implements Controller {
 
     private StreamedContent arquivoDownload;
@@ -85,20 +85,7 @@ public class DocumentoControllerImpl implements Controller {
         init();
     }
 
-    public String notificaoDocumento(Documento doc) {
-        init();
-
-        limparFormulario();
-        carregarLista();
-
-        setDocumentoSelecionado(doc);
-        obterDocumento();
-
-        String url = "documento/lista.xhtml?faces-redirect=true";
-
-        return url;
-    }
-
+   
     public void init() {
         documentoDao = new DocumentoDAOImpl();
         acessoDao = new AcessoDAOImpl();
@@ -111,6 +98,20 @@ public class DocumentoControllerImpl implements Controller {
 
         arquivoDownload = new DefaultStreamedContent();
         anexoSelecionado = new Anexo();
+        
+        documento = new Documento();
+        documentoSelecionado = new Documento();
+        anexos = new HashSet<Anexo>();
+        arquivosAnexos = new ArrayList<Anexo>();
+        
+        limparFormulario();
+        carregarLista();
+        initCbAcesso();
+        initCbLocalGuarda();
+        initCbLocalOrigem();
+        
+        //setDocumentoSelecionado(doc);
+        //obterDocumento();
 
     }
 

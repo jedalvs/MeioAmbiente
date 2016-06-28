@@ -29,10 +29,10 @@ public class DocumentoDAOImpl extends DaoImpl<Documento, Integer> {
         return query.list();
     }
     
-    public List<Documento> findAllVencimento(Date vencimento) throws Exception {
+    public List<Documento> findAllVencimento(Date dataInicio, Date dataFim) throws Exception {
 		session = HibernateUtil.getCurrentSession();
 		criteria = session.createCriteria(Documento.class);
-		criteria.add(Restrictions.eq("docuDataVencimento", vencimento));
+		criteria.add(Restrictions.between("docuDataVencimento", dataInicio, dataFim));
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		return criteria.list();
 	}
