@@ -33,8 +33,7 @@
 			<div class="panel panel-default">
 				<div class="panel-body">
 
-					<h:form id="form-documento" acceptcharset="ISO-8859-1"
-						enctype="multipart/form-data">
+					<h:form id="form-documento" enctype="multipart/form-data;charset=UTF-8">
 						<h:inputHidden value="#{documentoController.documento.docuId}" />
 						<h:inputHidden value="#{documentoController.documento.usuario.usuaId}" />
 						
@@ -227,6 +226,12 @@
 										actionListener="#{documentoController.baixarArquivo(anexo.anexCaminho, anexo.nomeArquivo)}"
 										value="#{anexo.nomeArquivo}" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s">
 								        <p:fileDownload value="#{documentoController.arquivoDownload}" />
+								    </p:commandButton>
+								    
+								    <p:commandButton
+										actionListener="#{documentoController.deleteArquivo(anexo)}"
+										value="Excluir" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s">
+								       
 								    </p:commandButton>
 
 									

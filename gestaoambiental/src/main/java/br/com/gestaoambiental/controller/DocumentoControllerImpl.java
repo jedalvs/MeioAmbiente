@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -395,8 +396,9 @@ public class DocumentoControllerImpl implements Controller {
 //	}
     public void upload(FileUploadEvent event) {
         try {
-            String nomeArquivo = event.getFile().getFileName();
-            nomeArquivo = new String(nomeArquivo.getBytes("ISO-8859-1"), "UTF-8");
+            String nomeArquivo =new String(event.getFile()
+                    .getFileName()
+                    .getBytes(Charset.defaultCharset()),"UTF-8");
             Anexo anexo = new Anexo();
             anexo.setArquivo(event.getFile().getInputstream());
             anexo.setAnexCaminho(DocumentoControllerImpl.FILE_PATH + "FLAG\\" + nomeArquivo);
@@ -437,6 +439,17 @@ public class DocumentoControllerImpl implements Controller {
         }
         return result;
     }
+    
+    public void deleteArquivo(Anexo anexo) throws Exception{    	
+    	String filepath = anexo.getAnexCaminho().replace("\\", "\\\\");    	
+    	File file = new File(filepath);
+    	
+		if(file.delete()){
+			anexoDao.delete(anexo);
+	    	arquivosAnexos.clear();
+	    	arquivosAnexos = anexoDao.findByDocumento(documentoSelecionado);
+		}
+    }
 
     public void baixarArquivo(String caminho, String nomeArquivo) {
         try {
@@ -457,7 +470,9 @@ public class DocumentoControllerImpl implements Controller {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }finally {
+        	
+		}
     }
 
     public String buscarExtencao(String path) {

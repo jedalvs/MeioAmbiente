@@ -116,6 +116,15 @@
 		<dispatcher>FORWARD</dispatcher>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
+	
+	<filter>
+	    <filter-name>Character Encoding Filter</filter-name>
+	    <filter-class>br.com.gestaoambiental.filter.CharacterEncodingFilter</filter-class>
+	</filter>
+	<filter-mapping>
+	    <filter-name>Character Encoding Filter</filter-name>
+	    <servlet-name>Faces Servlet</servlet-name>
+	</filter-mapping>
  
 	
 </web-app>
