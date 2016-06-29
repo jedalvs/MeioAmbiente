@@ -79,6 +79,7 @@ public class DocumentoControllerImpl implements Controller {
     private String idTempoGuardaSelecionado;
     private String idTempoGuardaArquivoMortoSelecionado;
     private List<Filial> filiais;
+    private static Documento doc;
    
     private static final String PAGINA_LISTA = "listaDocumento";
 
@@ -96,12 +97,15 @@ public class DocumentoControllerImpl implements Controller {
         obterDocumento();
 
         String url = "documento/lista.xhtml?faces-redirect=true";
+        
+        this.doc = doc;
 
         return url;
     }
 
    
     public void init() {
+    	
         documentoDao = new DocumentoDAOImpl();
         acessoDao = new AcessoDAOImpl();
         localOrigemDao = new LocalOrigemDAOImpl();
@@ -125,9 +129,11 @@ public class DocumentoControllerImpl implements Controller {
         initCbLocalGuarda();
         initCbLocalOrigem();
         
-//        setDocumentoSelecionado(doc);
-//        obterDocumento();
-
+        if(doc != null){
+          setDocumentoSelecionado(doc);
+          obterDocumento();
+          doc = null;
+        }
     }
 
     private Usuario buscarUsuario() {
